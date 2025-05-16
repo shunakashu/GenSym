@@ -113,7 +113,6 @@
 \newpage
 \noindent
 \small
-
 メモ: 前回資料の収集がつかなくなったので書き上げるのを(半ば)諦めて, 今回の資料を改めて作成しました. 
 preliminariesはもともと書き差しだったので日本語で書いています. 
 \normalsize
@@ -170,10 +169,12 @@ $d(\omega\wedge \eta) = (d\omega)\wedge \eta + (-1)^{k_\omega} \wedge \eta$ for
 any $k_\omega$-form $\omega$ and $k_\eta$-form $\eta$. 
 Therefore, the equation of motion for $A$ is $d\star F=0$. 
 This means that we have a conserved $2$-form current $F$, implying that this pure $U(1)$ gauge theory has a $U(1)$ 1-form symmetry (a.k.a \textit{electric $1$-form symmetry}). 
-Once we find a conserved current, we can write down the corresponding symmetry operator (which is topological) as an integral over closed $2$-dim surface
+Once we find a conserved current, we can write down the corresponding symmetry operator (which is topological) as an integral over closed $2$-dim surface 
+($\lambda$ is a parameter specifying a certain $U(1)$ element)
 \begin{align}
-    U^{e}_{\alpha}(\Sigma_2) = \exp\blr{i\lambda\oint_{\Sigma}\frac{\star F}{g}}=: \exp\blr{i\lambda\oint_{\Sigma}J^e_2} ~~
+    U^{e}_{\lambda}(\Sigma_2) = \exp\blr{i\lambda\oint_{\Sigma}\frac{\star F}{g}}=: \exp\blr{i\lambda\oint_{\Sigma}J^e_2} ~~
     (\mathrm{just~a~choice~of~normalization}). 
+    \label{electric1form}
 \end{align}
 The integral $\lambda\oint_{\Sigma}J^e_2$ is the "charge" of objects inside $\Sigma$. 
 The charge quantization $\int_{\Sigma} \star F = 2\pi \zet$
@@ -189,7 +190,8 @@ The integral of the Pfaffian of curvature $2$-form $\Omega$ over closed $2n$-dim
   \end{align}
   The action of $U^{e}_\lambda(\Sigma)$ on this $W(q, \gamma)$ can be written as
   \begin{align}
-    \lr{U^e_{\lambda}(\Sigma)W(q, \gamma)}=e^{iq\lambda\mathrm{Link}(\Sigma, \gamma)}\lr{W(q, \gamma)U^e_{\lambda}(\Sigma')},  
+    \lr{U^e_{\lambda}(\Sigma)W(q, \gamma)}=e^{iq\lambda\mathrm{Link}(\Sigma, \gamma)}\lr{W(q, \gamma)U^e_{\lambda}(\Sigma')}, 
+    \label{ActionWlison} 
   \end{align}
   where $\mathrm{Link}(\Sigma, \gamma)$ is the \textit{linking number} of $\Sigma$ and $\gamma$
   \footnote{Formally, this is defined as follows. 
@@ -252,6 +254,7 @@ The integral of the Pfaffian of curvature $2$-form $\Omega$ over closed $2n$-dim
     \node [font=\LARGE, color={rgb,255:red,255; green,38; blue,0}] at (58.75,26.25) {$\bullet$};
     \end{circuitikz}
     }
+    \caption{The illustration of the linking number in $3$d. }
     \label{fig:my_label}
     \end{figure}
   This action can be derived by considering the insertion of a Wilson line in spacetime. 
@@ -273,13 +276,53 @@ We now integrate both sides of the EoM over a $3$-dim mfd $\Sigma^3$ whose bound
 \begin{align}
     (RHS)= qg^2 \int_{\Sigma_3} \delta(\gamma) = qg^2 \mathrm{Link(\Sigma_2. \gamma)}. 
 \end{align}
-
-%%%%%%%%%%%%
- We can also consider the "dual" $1$-form symmetry: due to the Bianchi identity, we have $dF=0$ 
-(pure gauge field is flat). By regarding this as $2$-form current conservation, we can write down the correponding symmetry operator as
-%
-Now, let's consider coupling "background $U(1)^{(1)}$ gauge field" to our conserved $2$-form current, as we have done in the case of ordinary $U(1)$ gauge theory. 
-This is done by adding a term to the action
+Thus, by considering the "topological deformation" of $\Sigma_2$: 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ActionToWilsonLine.jpg}
+    \caption{$\Sigma_2=\Sigma'_2\cup \delta \Sigma_2$, where $\Sigma_2$ is a boundary of infinitesimal $3$-dim mfd which links to $\gamma$. }
+    \label{ActionToWlison}
+\end{figure}
+\noindent
+Note that this deformation should be interpreted in path-integral formulation. Thus, we have
+\begin{align}
+    \lr{\exp\blr{i\frac{\lambda}{g^2}\oint_{\Sigma_2}\star F}W(q, \gamma)}
+    =\lr{e^{iq\lambda\mathrm{Link}(\Sigma_2, \gamma)}
+    W(q, \gamma)\exp\blr{i\frac{\lambda}{g^2}\oint_{\Sigma'_2}\star F}W(q, \gamma)}, 
+\label{WlisonLineCharge}
+\end{align}
+which is the same as \eqref{ActionWilson}. \\
+ By the way, the action of $U^e_\lambda$ on $W(q, \gamma)$ can be seen as the shift of 1-form gauge field $A$ by 
+ $A\mapsto A + a$, where $\oint_{\gamma} a =\lambda \mathrm{Link}(\Sigma_2, \gamma)$. 
+ In fact, the associate current $\star J^e$ is the conjugate momentum of $A$, generating the shift of $A$. \\
+ \\
+ We can also consider the "dual" $1$-form symmetry: due to the Bianchi identity, we have $dF=0$ (that is, the pure Maxwell field is flat). 
+ By regarding this identity as the conservation of $2$-form current $J^{m}_2 :=\frac{1}{2\pi}\star F$, we can write down the correponding symmetry operator as
+ \begin{align}
+    U^{m}_\lambda(\Sigma_2) = \exp\blr{i\lambda\oint_{\Sigma_2}\star J^m_2}
+    =\exp\blr{i\lambda\oint_{\Sigma_2}\frac{F}{2\pi}}. 
+ \label{magnetic1form}
+ \end{align}
+ This $1$-form symmetry is called \textit{magnetic $1$-form symmetry}. Its charged operator is the so-called \textbf{'t Hooft line}
+ \begin{align}
+    T_1(m, \gamma) := e^{im\int_{\gamma}\tilde{A}}, 
+ \label{tHooft}
+ \end{align}
+ where $\tilde{A}$ is the dual gauge field defined by $\star F=d\tilde{A}$. 
+ The action of the $1$-form magnetic symmetry on a 't Hooft line is completely analogous to the case of electric $1$-form symmetry: 
+ \begin{align}
+    \lr{U^{m}_\lambda(\Sigma_2)T_1(m, \gamma)}
+    =e^{im\lambda\mathrm{Link}(\Sigma_2, \gamma)}\lr{T_1(m, \gamma)U^{m}_\lambda (\Sigma'_2)}. 
+ \label{ActionTotHooft}
+ \end{align}
+\\ \\
+It is insightful to consider coupling "background $1$-form $U(1)$ gauge field" to our conserved $2$-form currents, as we have done in the case of ordinary $U(1)$ gauge theory. 
+This is done by modifying the action integral
+\footnote{詮: 系の力学を記述する「作用積分」と, 演算子の場に対する「作用」を区別するために, 以降は前者を"action integral"と呼ぶことにします. }
+\begin{align}
+    S=\frac{1}{2g^2}
+\label{Gauging1formSym}
+\end{align}
 \subsection{}
 \section{Non-invertible symmetry}
 %ここからは, 先に述べた「2つの一般化の方向」の, もう一つに視点を当ててみる. 
