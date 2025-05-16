@@ -1,0 +1,220 @@
+この分野を勉強するにあたって役に立ちそうな知識を, ごくごく簡単にまとめます. 
+higher-form symmetryとその例を理解するにはゲージ理論の知識が, またnon-invertible symmetryの例を理解するにはCFTの知識が多少必要になります. 
+また, 一般の多様体上で微分や積分を局所座標に依存しない形で定式化するためには, 微分形式の言葉が必要になります. 
+\subsection{微分形式}
+ここでは, 時空多様体$M$は微分可能であり, 局所座標系$\{(U, \phi)\}$($\phi: U\to \re^{d}$)が与えられているものとします. 
+そのため, あらかじめ局所表示されたものとして微分形式を取り扱います. 
+\subsubsection{$1$-formの導入: 2次元平面を例に}
+いま, 2次元平面$M=\re^{2}$の上の各点$(x,y)$ごとにベクトル$(a_x(x,y), a_y(x,y))$が定義されている, つまりベクトル場が定まっているとする. 
+このベクトル場を, $M$上の曲線$\gamma: [0,1]\to M, ~ t\mapsto (x(t), y(t))$に沿って積分したい. 
+\begin{align}
+    \begin{tikzpicture}
+        \draw (-2,-2)--(2,-2)--(2,2)--(-2,2)--(-2,-2);
+        \draw[->] (-1,-1) .. controls (-0.5, -1.2) and (0.5,1.2) .. (1,1);
+        \node[above] at (0,0) {(x(t), y(t))};
+        \node[above] at (-0.5,-0.5) {\gamma};
+        \fill[black](0,0) circle [radius=0.05];
+    \end{tikzpicture}
+\end{align}
+この積分は, 
+\begin{align}
+    \int_{0}^{1} \left(a_x(x(t), y(t))\frac{dx}{dt}dt + a_y(x(t), y(t))\frac{dy}{dt}dt \right)
+    \equiv \int_{\gamma} a_x dx + a_y dy
+\end{align}
+と書ける. 
+点$p=(x,y)\in M$に対して, $\ler{\frac{\partial}{\partial x}}_p : C^{\infty}(M)\to \mathbb{R}, f\to \frac{\partial f}{\partial x}(x,y)$および
+$\ler{\frac{\partial}{\partial y}}_p : f\to \frac{\partial f}{\partial y}(x,y)$
+という2つの写像を定める時, 基底$\blr{\ler{\frac{\partial}{\partial x}}_p, \ler{\frac{\partial}{\partial y}}_p}$で張られる線型空間$T_pM$は$M$の点$p$における接空間と呼ばれ, 
+$T_pM$の元は接ベクトルと呼ばれる. 接ベクトルは時空座標の軌跡の情報を持つ. \\
+　いま, 接空間の双対空間$T^{*}_pM$, すなわち$\phi: v\in T_p M \mapsto \phi(v)\in \mathbb{K}$ によって張られる線型空間を考える
+(係数体$\mathbb{K}$はなんでも良いが, 以下では$\mathbb{R}$とする). 
+$T^{*}_pM$の基底を$\blr{dx_p, dy_p}$と書き, これを
+双線型写像$\langle \rangle: T_pM \times T^{*}_pM \to \re$によって
+\begin{align}
+   & \langle \ler{\frac{\partial}{\partial x}}_p, dx_p \rangle = 1,~~ \langle \ler{\frac{\partial}{\partial y}}_p, dx_p \rangle = 0\\
+    &\langle \ler{\frac{\partial}{\partial x}}_p, dx_p \rangle = 1,~~ \langle \ler{\frac{\partial}{\partial y}}_p, dy_p \rangle = 1
+\end{align}
+となるものとする. この時, $dx$および$dy$を, 「各点$p=(x,y)\in M$ごとに, 余接空間$T_p M$の基底$\blr{dx_p, dy_p}$を与えるもの」として, 
+$\omega\in \Omega^{1}(M): M\to T^{*}M$を「各点$p=(x,y)$ごとに余接ベクトル$\omega_x(x, y)dx_p + \omega_y(x,y)dy_p$を与えるもの」とする. 
+このような$\omega$を$M$上の$1$-formと呼ぶ. 
+集合$\Omega^{1}(M)$は, $dx$および$dy$の$C^{\infty}(M)$係数線型結合($C^{\infty}$-加群)の構造を有する. \\
+　$1$-formは, 各点における接ベクトルを与えるごとに数を返すため, 「経路$\gamma$に沿った$1$-formの積分」を定義できる: 
+\begin{align}
+    \int_{\gamma} \omega
+    =\int_{0}^{1} \left(\omega_x(x(t), y(t))\frac{dx}{dt}dt + \omega_y(x(t), y(t))\frac{dy}{dt}dt \right)~.
+\end{align}
+すなわち, $1$-form$\omega_x(x, y)dx_p + \omega_y(x, y)dy_p$の積分は, 接ベクトル$\omega_x(x, y)\ler{\frac{\partial}{\partial x}}_p + \omega_y(x,y)\ler{\frac{\partial}{\partial y}}_p$の積分と結局同じである. \\
+　$dx_p$および$dy_p$を点$p=(x,y)$における線素とみなせば, $\omega_p = \omega_x(x,y)dx_p + \omega_y(x,y)dy_p$を, 単に「軌跡$\gamma$に沿った関数の微小変化」と考えることもできる. 
+実際, ある関数$f: M\to \re$を用いて$\omega_x(x,y)=\partial_x f(x,y)$, $\omega_y(x,y) = \partial_y f(x,y)$と書ける時, 
+$\omega_p = \partial_x f(x,y) dx_p + \partial_y f(x,y) dy_p$で, これはまさに関数$f$の点$p$における微小変化の形. 
+\subsubsection{微分形式の定義}
+一般の$n$次元可微分多様体においても同様に, 各点$p\in M$の接空間$T_pM$に対する双対空間(余接空間)を考える事で, 
+$1$-form $\omega\in \Omega^{1}(M)$を定義出来る. 
+多様体$M$の局所座標表示$\{U, \phi\}$が与えられているとすると, 各点$p\in U$上での$\omega$の局所表示は, 一般に$\omega=\sum_{\mu}f_{\mu}(x)dx^{\mu}\in \Omega^{1}(M)$の形をとる. 
+この時, 2次元平面の場合と同様に, $1$-formの経路$\gamma: [0,1]\to M$に沿った積分というものを考える事ができる(「経路$\gamma$に沿った積分」を, $1$-formに対して数を返す対応と見なす事ができる). 
+$1$-formは接ベクトルの"dual"であり, 各点$p\in M$における接ベクトル$v_p=\sum_{\mu}v^{\mu}(x)\ler{\frac{\partial
+}{\partial x}}_p$に対して$1$-formを割り当てる写像を, 
+\begin{align}
+    v_p \mapsto \omega_p = \sum_{\mu\nu}g_{\mu\nu}v^{\nu}(x)dx^{\mu}_p
+\end{align}
+によって定める事ができる. 
+以下, 局所表示の存在を前提として, 特定の点$p\in M$への依存性を明示しないものとする. \\
+　$1$-form全体の集合$\Omega^{1}(M)$に対して, 各点ごとに二項演算$\wedge$を定める: 
+\begin{align}
+    \omega\wedge \eta = \ler{\sum_{\mu}\omega_\mu(x)dx^{\mu}}\ler{\sum_{\nu}\omega_\nu(x)dx^\nu}
+    =\sum_{\mu, \nu}\omega_{\mu}(x)\eta_{\nu} dx^{\mu}\wedge dx^{\nu}
+\end{align}
+これは$\Omega^{1}(M)$の基底の部分について反対称な演算である: $dx^{\mu}\wedge dx^\nu = -dx^\nu \wedge dx^\mu$. 
+$1$-form同士のwedge積$\omega\wedge \eta$は, $dx^{\mu}\wedge dx^\nu$の$C^{\infty}(M)$係数線型結合($C^{\infty}(M)$-加群)の形をとる. 
+ここで, $M$上の"2-form"全体の集合$\Omega^{2}(M)$を, $\omega_2 = \sum_{i_1, i_2}f_{i_1, i_2}(x)dx^{i_1}\wedge dx^{i_2}$なる形の元によって生成される$C^{\infty}(M)$-加群として定義すると, 
+wedge積は2つの1-formに対して2-formを返す反対称な演算であると言える. 
+2-formは, 各点$p\in M$において接ベクトル空間の直積$T_pM\times T_p M$を数に移す写像を定める. \\
+　より一般に, $M$上の"k-form"全体の集合$\Omega^{k}(M)$を, $\omega_k = \sum_{i_1, \cdots, i_n}f_{i_1, \cdots, i_n}(x)dx^{i_1}\wedge \cdots \wedge dx^{i_n}$なる元により生成される$C^{\infty}(M)$-加群として定義する. 
+この時, $p$-formと$q$-formの間のwedge積を, $(p+q)$-formを返す反対称な演算として定義出来る: 
+$\alpha_p = \sum_{i_1, \cdots, i_p}\alpha_{i_1, \cdots, i_p}(x)dx^{i_1}\wedge \cdots \wedge dx^{i_p}$
+および$\beta_q = \sum_{j_1, \cdots, j_q}\beta_{j_1, \cdots, j_q}(x)dx^{j_1}\wedge \cdots \wedge dx^{j_q}$に対し, 
+\begin{align}
+    &\alpha_p \wedge \beta_q = \sum_{i_1, \cdots, i_p, j_1, \cdots, j_q}\alpha_{i_1, \cdots, i_p}(x)\beta_{j_1, \cdots, j_q}(x)(dx^{i_1}\wedge \cdots \wedge dx^{i_p})\wedge (dx^{j_1}\wedge \cdots \wedge dx^{j_q}), \\
+    &\alpha_p \wedge \beta_q = (-1)^{pq}\beta_q \wedge \alpha_p. \\
+\end{align}
+このことから, 集合$\Omega^{*}(M):=\bigoplus_{k}\Omega^{k}(M)$を定めた時, これは各$p\in M$ごとに(あるいは, 各開近傍$U\subset M$ごとに)$\mathbb{R}$上の次数付き反可換代数$\Omega^{*}(U)$を定める事がわかる
+\footnote{代数構造は大域的には定義されておらず, 各点の近傍$p\in U\subset $にまでしか拡張できない. 
+そのため, 微分形式の代数構造に着目する時は, 今後$\Omega^{k}(U)$と書くように努める. }. \\
+\subsubsection{外微分}
+$d: \Omega^{k}(U)\to \Omega^{k+1}(U)$を, 
+\begin{align}
+    d\omega 
+    = \sum_{h_1\cdots h_p}\sum_{i} \frac{\partial a_{h_1\cdots h_p}}{\partial x_i}dx^{i}\wedge dx^{h_1}\wedge \cdots \wedge dx^{h_p}
+\end{align}
+\subsubsection{Stokesの定理}
+\begin{align}
+    \int_{M}d\omega = \int_{\partial M}\omega
+\end{align}
+\subsubsection{de Rhamコホモロジー}
+コホモロジー群というのはホモロジー群
+\footnote{位相空間$M$のホモロジー群とは, 簡単に言えば「"境界を取ると消えるもの"と"何らかの境界になっているもの"との間の差を測る指標」であり, 
+これは$M$の位相構造に直接的に依存する. 
+例えば, ユークリッド空間$\mathbb{R}^n$のような「普通の」空間の中では二者の差はなく(ホモロジー群は自明), トーラス$T^2$では二者は区別される. 
+ホモロジー群には様々なバリエーションがあるが, 一番直感的に理解しやすいものは, 三角形分割可能な位相空間に対する単体的ホモロジー
+($n$-チェインを$n$-単体の形式和として, 境界準同型を「$n$-単体の図形としての境界を(向きを考慮して)取ってくるもの」として構成するホモロジー)だろう. 
+詳しくは, \href{https://ja.wikipedia.org/wiki/単体的ホモロジー}{Wikipediaの記事}を参照. }
+の双対(co-)であり(チェイン複体およびその間の境界準同型に対して「転置」を考える事, とも言える), 
+「コチェイン複体」と呼ばれる対象および「微分」という操作を用いて構成されるアーベル群の列のことを言う. 
+標語的には, これは
+「"微分すると0になるもの"と"何らかの微分として書けるもの"との間の差を測る指標」として理解される
+\footnote{もちろん(?), コホモロジー理論には公理的な定式化があり, 
+"Eilenberg-Steenrod公理"と呼ばれるコホモロジー理論を特徴付ける一連の公理系が存在する: \\
+位相空間の組$(X, A\subseteq X)$の圏からアーベル群の圏への反変関手の組$h^{i}$であって, \\
+「次元公理(一点空間$X=*$に対して, $h^i(*)=0(i\neq 0), \mathbb{Z}(i=0)$)」\\
+「切除公理($U\subseteq A \subseteq X$に対して, 同型$h^{n}(X\backslash U, A\backslash U)\simeq h^n(X, A)$が成り立つ)」\\
+「ホモトピー公理(位相空間の組の間のホモトピックな2つの連続写像$f, g$から誘導される群準同型$h^i(f), h^i(g)$は同じ)」\\
+「完全性公理(長完全列: $\cdots\to h^i(X, A)\to h^i(X)\to h^i(A)\stackrel{d}{\to}h^{i+1}(X, A)\to\cdots$が成立する)」\\
+「加法性公理($(X, A)=(\sqcup_\alpha X_\alpha, \sqcup_{\alpha}A_\alpha)$に対して, 
+包含写像$(X_\alpha, A_\alpha)\hookrightarrow (X, A)$は同型$h^i(X, A)\simeq  \prod_{\alpha}h^{i}(X_\alpha, A_\alpha)$を引き起こす)」\\
+の5つの性質を満たすものを, コホモロジー理論という. 
+詳細を述べる余裕はないので省略. }
+. 
+コホモロジー群は, コチェイン複体の構成の仕方に応じて様々な種類があるが, ここでは微分形式から構成される\textbf{de Rhamコホモロジー群}というものについて述べる. \\
+\subsubsection{Hodge双対}
+時空全体が$d+1$次元の時, 
+$\star: \Omega^{p}(U)\to \Omega^{d+1-p}(U)$
+\subsection{ゲージ理論}
+ゲージ理論とは, 局所変換(時空の各点上の場$\phi(x)$に対する, 座標に依存した異なる変換$g(x)$)
+の下で不変なラグランジアンを持つ場の理論である. 
+ゲージ不変性を持つラグランジアンには, 物質場の他に物質場と結合したゲージ場と呼ばれるベクトル場が登場する. 
+このような特殊な不変性は, (理論に新たな場の存在を要請するため)通常の意味での対称性というよりは, むしろ理論の冗長性として考えるべきである. 
+\subsubsection{(連続かつ非可換な)ゲージ理論の概要}
+\subsubsection{数学的な定義}
+場の理論は, 「時空多様体の各点に場$\phi$が定義されている」という構造をしており, 
+特に場$\phi$が各点上でベクトル空間$V$の構造を持つ場合, 
+場の配位は「時空多様体$M^{d+1}$を底空間, ベクトル空間$V$をファイバーとするベクトル束」として定義される
+(スカラー場の場合はファイバーが1次元スカラーである線束, スピノル場の場合はさらにスピン構造
+\footnote{向きづけ可能な(変換関数$g_{ij}: U_{i}\cap U_j\to \mathrm{GL}(n)$が$SO(n)$値となる)ベクトル束$(E, \pi)$について, 
+ファイバー$F_x\simeq V$に内積が定義されているとする. 
+この時, 各点で$F_x$の正規直交標構(順序付けされた基底の組)を考える事で
+$M^{d+1}$上の標構束$P_{SO(E)}$を与える事ができる. 
+この標構束に対して, 主束$P_{Spin}(E)$への持ち上げが存在する(すなわち, 束写像$\varphi: P_{Spin}(E)\to P_{SO(E)}$であって, 
+任意の$p\in P_{Spin}(E), g\in \mathrm{Spin}(n)$および「二重被覆」を表す準同型$\rho: \mathrm{Spin}(n)\to \mathrm{SO}(n)$
+に対して$\varphi(pg) = \varphi(p)\rho(g)$を満たすようなものが存在する)時, 
+ベクトル束$(E, \pi)$はスピン構造を持つという. }%
+と呼ばれる構造を必要とする). 
+この時, 場$\phi$は時空上の各点$x\in M^{d+1}$にベクトル空間の元$\phi(x)$を対応させる対応関係であり, 
+これはベクトル束の切断$\phi: U(\subset M^{d+1})\to V$の構造を持つ. \\
+　ゲージ理論もまた, 時空多様体$M^{d+1}$上のベクトル束の言葉で定式化される. 
+ゲージ群を$G$とする時, 物質場$\phi$は主$G$束$P$に対する同伴ベクトル束$P\times_\phi V$の切断として, 
+ゲージ場$A$は主$G$束の$\mathfrak{g}$値接続1形式
+\footnote{ベクトル束の接続とは, ベクトル束$(E, \pi)$および$E$の切断全体の集合$\Gamma(E)$に対して定義される汎函数
+$\nabla : \mathfrak{X}(M)\times \Gamma(E)\to \Gamma(E)$
+であり, $\mathfrak{X}(M)$, $\Gamma(E)$に関する線形性および$\Gamma(E)$に関するライプニッツ則
+$\nabla_{X}(fs) = X(f)s + f\nabla_X s$を満たすもののことを言う. 
+得られる$\nabla_X s$を「$\nabla$によって定められる$s$の$X$方向の共変微分」という. \\
+　ベクトル場$X\in \mathfrak{X}(M)$を明示しない接続の別の定式化がある. 
+$p\in M$を指定した時, 全空間$E$に値を取る写像
+$$\nabla s|_p : X_p\in T_{p}M \mapsto \nabla_{X_p}s|_p \in E$$
+を定義すると, この$\nabla s|_p$は$T^{*}_p M\otimes E$の元とみなせる. 
+そこで, $M$上の各点$p$ごとに$T^{*}_p M$の元$\nabla s|_p$を対応させるような切断
+$$\nabla s: M \to T^{*}M\otimes E$$を考えると, 
+$\nabla$は切断$s: M\to E(\in \Gamma(M))$に切断$\nabla_s: M\to T^{*}M\otimes E (\in \Gamma(T^{*}M\otimes E))$を対応させる(線形な)写像として定義できる. \\
+%接続形式の定義
+}%
+$\Gamma(U, \Omega^1(U)\times \mathfrak{g})$として与えられる. 
+ここで, 主$G$束, および主束に同伴するベクトル束の定義は, それぞれ以下の通り. 
+%definitionを述べる
+　上の定式化の下で, ゲージ変換は, 
+\subsubsection{背景ゲージ場のゲージ化}
+ゲージ理論では, 力学的自由度としての物質場の他に, ゲージ自由度(冗長性)を記述する背景ゲージ場が存在し, 
+物質場がゲージ場と結合することで, 全体としてゲージ不変なラグランジアンをなしている. 
+背景ゲージ場は, 力学変数ではなくあらかじめ時空に与えられた古典的な場である. 
+ゲージ不変な場の理論を定義するために必要な「環境」のようなものと思えば良い(のか?). \\
+　理論にゲージ不変性がある時, ゲージ群$G$に対する大域的変換の下での対称性から, 保存カレントが存在する: 
+\begin{align}
+    \delta S = \int \partial_\mu \epsilon(x)j^\mu (x)d^dx, ~ 
+    \mathrm{for}~ \phi(x)\mapsto \phi(x)+ \epsilon(x)\delta \phi(x). 
+\end{align}
+この保存カレント$j^{\mu}$に対して1-form $j=j_{\mu}dx^{\mu}$を考えると, 
+そのHodge双対は閉形式となる: $d\star j=0$. 
+以下, この閉$d$-formのことを保存カレント$\star j$と呼ぶことにする. \\
+　保存カレントが存在する時, それと背景ゲージ場との結合は, 作用に次の項を加えることによってなされる: 
+\begin{align}
+    S + = i\int A_{\mu}(x)j^\mu(x)d^d x = i\int A\wedge \star j. 
+\end{align}
+カレントが$d$-formの時, 結合する背景ゲージ場は$1$-formとなる
+(higher-form symmetryの場合, より高次の背景ゲージ場との結合を考えることになる). 
+この時, 背景ゲージ場のゲージ変換$A\to A + d\lambda$の下で($\lambda$: $0$-form), 
+作用は
+\begin{align}
+    \delta S_{\lambda} = i\int d\lambda(x) \wedge \star j
+    =- i\int \lambda(x)\wedge d\star j
+    =0 ~~(\because \mathrm{current~conservation})
+\end{align}
+となり不変である. \\
+%"symmetry defect operators implement a background gauge transformation along its world volume"
+　理論において, カレントを背景ゲージ場と結合させた時, カレントの保存則は
+「背景ゲージ場$A$のゲージ変換の下で分配関数が不変となること」に換言できる. 
+いま, 先の方法で背景ゲージ場と結合させた理論の作用$S[\psi, A]$に対して, 分配関数は$A$に依存する形で
+\subsubsection{離散ゲージ理論}
+物理学では, $\mathbb{Z}_2$対称性や$\mathbb{Z}_{N}$対称性のような離散的な対称性が重要な役割を果たすことがある. 
+このような離散的な内部対称性を持つ理論, すなわち離散ゲージ理論について簡単に述べる. \\
+　離散的な変換の場合, 場の各点ごとに異なる変換を施すという事が意味を持たなくなる
+(時空座標が連続的で無限個の点からなるのに対して, 変換群の元は離散的で有限個であるため). 
+そこで, 離散ゲージ理論では, 場の定義される時空を単体分割して離散的に取り扱う. 
+単体分割とは, 微分可能な多様体を, その「基本単位」である単体の和(形式的線型結合)に分割することである. 
+$0$次元の単体($0$-単体)は点, $1$次元単体($1$-単体)は線分, $2$次元単体($2$-単体)は三角形, などなど. 
+$p$次元の単体は$p$-単体と呼ばれ, これは$(p+1)$個の互いに独立な頂点$(v_0, \cdots, v_p)$を(向きを考慮して)結んで出来る. \\
+　連続的な場の理論におけるゲージ変換では, 時空上の各点に$G$の元を割り当てていた. 
+ここではその代わりに, 単体分割された時空において, $p$-単体に対して$G$の元を割り当てる写像(=\textbf{$p$-コチェイン})を考えることにする
+(ただし, $G$はAbel群). 
+このような写像が"コチェイン"と呼ばれる理由は, $p$-コチェインに対して$(p+1)$-コチェインを返す写像
+\begin{align}
+    \delta c_p
+\end{align}
+があるからである
+($G$係数のコホモロジーを構成できる). 
+\subsection{共形場理論(CFT)}
+\subsubsection{共形対称性とは}
+\subsubsection{相関関数}
+\subsubsection{演算子積(OPE)}
+
+\subsubsection{状態-演算子対応}
+\subsubsection{ミニマル模型}
+\subsubsection{Ising CFT: $(p.q)=(3,4)$のミニマル模型}

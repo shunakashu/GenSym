@@ -1,0 +1,673 @@
+\documentclass{ltjsarticle}
+
+%%%%%%%%%%packages%%%%%%%%%%
+%% colors and links
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks,citecolor=DarkGreen,linkcolor=Blue,linktocpage,unicode]{hyperref} 
+
+%% equations
+%%%% math
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{dsfont}
+%%%% physics
+\usepackage{siunitx}
+\usepackage{physics}
+%% positioning
+\usepackage{array}
+\usepackage{float}
+
+%% table
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{caption}
+\captionsetup{format=hang}
+\usepackage{subcaption}
+
+%% figure
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{circuitikz}
+
+%% decorations
+\usepackage{titlesec}
+\usepackage{picture}
+
+%% framing
+\usepackage{fancybox}
+\usepackage{boites}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,theorems,breakable}
+
+%% citation
+\usepackage{cite}
+
+%%%%%%%%%%optional settings%%%%%%%%%%
+
+%%%%%図表並列%%%%%
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+
+%%%%%itemization%%%%%
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\theenumi}{(\arabic{enumi})} % 箇条書きをローマ数字に
+
+%%%%%%theorem environments%%%%%
+\newtheoremstyle{mystyle}%   % スタイル名
+    {}%                      % 上部スペース
+    {}%                      % 下部スペース
+    {\normalfont}%          % 本文フォント
+    {}%                      % インデント量
+    {\bf}%                  % 見出しフォント
+    {.}%                      % 見出し後の句読点
+    {\newline}%                     % 見出し後のスペース
+    {\underline{\thmname{#1}\thmnumber{#2}\thmnote{（#3）}}}%
+    % 見出しの書式 (can be left empty, meaning `normal')
+\theoremstyle{mystyle} % スタイルの適用
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}{定義}[section]
+\newtheorem{proposition}[definition]{命題}
+\newtheorem{corollary}[theorem]{系}
+\renewcommand{\proofname}{証明}
+
+\newtheorem{remark}{Remark. }[section]
+\newtheorem{axiom}{公理}[section]
+\newtheorem{conjecture}{Conjecture. }[section]
+
+%%%%%%mathtools%%%%%
+\mathtoolsset{showonlyrefs=true} % 被参照数式のみ数式番号割り振り
+\numberwithin{equation}{section}
+
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+
+%%%%%%framing%%%%%
+
+\newcommand{\lto}{\longrightarrow}
+\newcommand{\lmto}{\longmapsto}
+\newcommand{\btl}{\blacktriangleleft}
+\newcommand{\btr}{\blacktriangleright}
+
+\newcommand{\then}{\Rightarrow}
+\newcommand{\incl}{\hookrightarrow}
+
+\input{/Users/shunakashu/OshikawaLab/輪講/mycommand.tex}
+\input{/Users/shunakashu/OshikawaLab/輪講/mytikzcommand.tex}
+\title{一般化対称性輪講: 第一回}
+\author{Shuma NAKASHIBA}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\newpage
+\section{対称性(ordinary symmetry)の復習}
+\subsection{場の理論における対称性}
+\subsubsection{相関関数と経路積分表示}
+\textbf{通常の}場の量子論では, 時空の異なる点$x=(x^0, x^j)$ごとに異なる値を取る\textbf{局所的な}場$\phi(x)$が基本変数となり, 物理量は
+場の量(あるいはその汎函数)の相関関数
+\begin{align}
+    \lr{\phi(x_1)\cdots \phi(x_n)}
+    =\frac{1}{Z}\pint{\phi}~ e^{-S[\phi]}\phi(x_1)\cdots \phi(x_n)
+\end{align}
+\begin{align}
+    Z=\pint{\phi}~e^{-S[\phi]}
+\end{align}
+として表される. 経路積分は, 時空上の各点でパラメタづけられた場$\phi$の可能な全ての配位に関する和であり, その測度は時空座標をパラメタとして形式的に
+\begin{align}
+    \pint{\phi} = \prod_{x^j}\prod_{\tau}d\phi(x^j, \tau)
+\end{align}
+と書ける. なお, 次節を除き, 基本的に時間方向についてEuclid化した時空を扱う: 
+\begin{align}
+    t\to \tau=it, ~
+    S_E = \int d\tau ~L_E (q, \partial_\tau q) = -\int d\tau ~L(q, i\partial_\tau q)~.
+\end{align}
+\subsubsection{作用と対称性}
+ここではMinkowski時空上で作用と対称性の関係について考える. 
+時空が$(d+1)$次元上で定義されている時, 作用はラグランジアン密度$\mathcal{L}$の積分
+$S=\int d^{d+1}x~\mathcal{L}(\phi, \partial_\mu \phi)$
+で書ける. 今, 場$\phi$の無限小変換
+\begin{align}
+    \phi(x)\to \phi'(x) = \phi(x) + \epsilon^a(x) G_{a}\phi(x) (=\phi + \delta \phi)
+\end{align}
+を考える(ここで, $G^a$は無限小変換の生成子
+\footnote{場の変換があるリー群$G$の元によって$\phi(x)\to \phi'=g \phi(x)$のように書けるとする. 
+いま, リー群の元$g$がリー環の(ベクトル空間としての)基底$G^a$($a$: 基底のラベル)および指数写像$\exp: \mathfrak{g}\to G$を用いて
+$g=\exp({\epsilon^a G_a})$と書けるものとすると, 
+無限小変換は$\phi\to \phi' = \phi + \epsilon^a G_{a}\phi$の形になる. 
+場の変換が有限群の場合, 無限小変換に相当する操作を考える事ができないので, 注意が必要. 
+}
+). これは, 座標の変換ではなく場そのものの変換であるため, 時空の対称性(=ローレンツ変換に対する対称性)ではなく場の理論の持つ内部対称性を考えているということになる
+\footnote{座標変換を伴わない場の量の変換としては, 例えば場の量をその場で位相変換するなどが考えられる. 
+一方, 座標の変換$x^\mu\to x^\mu + \delta x^\mu$に伴って場の量が変化する場合もある. 
+例えば, 並進変換$x^\mu \to x^\mu - \epsilon^\mu$を施した時, 
+場の量$\phi\to \phi'$は並進後の位置において同じ値を返すべきなので$\phi'(x')=\phi(x)$, すなわち
+$\phi'(x)=\phi(x'+\epsilon)=\phi(x)+\epsilon^{\mu}\partial_\mu \phi(x)$
+と変換される. }. 
+このとき作用の受ける変換を$S[\phi]\to S[\phi+\delta \phi] = S[\phi] + \delta S[\phi]$と書くと, 
+\begin{align}
+    \label{eq: deltaS}
+    \delta S &= S[\phi+\delta \phi] - S[\phi]\\
+    &=\int d^{d+1}x \slr{\frac{\partial \mathcal{L}}{\partial \phi}\delta \phi 
+    + \frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)}\delta(\partial_\mu \phi)}\\
+    &=\int d^{d+1}x \slr{\frac{\partial \mathcal{L}}{\partial \phi}\epsilon^a G_a \phi 
+    + \frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)}\partial_\mu(\epsilon^a G_a \phi)}\\
+    &\stackrel{部分積分}{=}\int d^{d+1}x \slr{\frac{\partial \mathcal{L}}{\partial \phi
+    }\epsilon^a G_a \phi - \partial_\mu\ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)}}\epsilon^a G_a \phi
+    +\partial_\mu\ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)}\epsilon^a G_a \phi}}\\
+    &=\int d^{d+1}x \slr{\blr{\frac{\partial \mathcal{L}}{\partial \phi
+    } - \partial_\mu\ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)}}}(\epsilon^a G_a \phi)
+    +\partial_\mu\ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)} G_a \phi}\epsilon^a (x)
+    + \ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)} G_a \phi}\partial_\mu \epsilon^a (x)}\\
+\end{align}
+となる. 
+一般の無限小変換に対して作用は不変とならないが, 大域的対称性を持つ理論の場合は大域的変換($\epsilon^a(x)=\epsilon^a$(定数)となる変換)に対して作用の変化分$\delta S$は0となる. 
+この時, まず$\epsilon^a G_a \phi$で括った項については, オイラー・ラグランジュ方程式
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial \phi
+    } - \partial_\mu\ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)}}=0
+\end{align}
+を満たす場の配位(古典的な配位)に対して0となる. 
+第3項は大域的変換のもとでは消えるので, 大域的対称性からは第2項が$0$になる事が従う. すなわち, 
+\begin{align}
+    \partial_\mu\ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)} G_a \phi} =: \partial_\mu j^\mu_a = 0
+\end{align}
+なる保存量$j^\mu_a$の存在が導かれる(内部対称性に対するNoetherカレント
+\footnote{今は内部対称性のみを考えていたが, 座標変換も含めて考える場合はこのNoetherカレントの表式は少し変化する: 
+%余裕があれば
+例えば, 時空のローレンツ変換に対する保存カレント(エネルギー・運動量テンソル, 角運動量)はこの形をとる. }
+)
+. この$j^\mu_a$は変換群$G$の生成子$G_a$のラベルを持つ, すなわち独立な変換の方向の数だけ保存量$j_a$が存在する. \\
+　保存カレントが存在する時, その時間成分($\mu=0$成分)の空間積分$Q_a:=\int d^{d}x~j_a^0 $を考えると, その時間変化は
+\begin{align}
+    \frac{d}{dt}Q_a &= \int d^{d}x~\partial_0 j_a^0 
+    = \int d^{d}x~(\partial_0 j^0+\partial_i j_a^i)
+    \stackrel{\partial_\mu j_a^\mu = 0}{=}
+    -\int d^{d}x~\partial_i j_a^i
+\end{align}
+となる. 最右辺について, 「空間の無限遠方で場の量が0になる」という境界条件を課すと, 
+この積分は実質的に境界のない空間上での積分となるので, Gaussの法則から0になる. 
+ゆえ, この$Q$は時間変化しない量であり, 大域的対称性に対する保存電荷と呼ばれる. \\
+　ところで, この保存電荷は, 無限小変換の生成子としての意味を持つ. 実際, 
+\begin{align}
+    \slr{iQ_a, \phi(y)}&=\int d^d x~\slr{\frac{\partial\mathcal{L}}{\partial(\partial_0 \phi(x))} G_a \phi(x), \phi(y)}\\
+    &=i\int d^d x~\slr{\frac{\partial\mathcal{L}}{\partial(\partial_0 \phi(x))}, \phi(y)}G_a \phi(x)\\
+    &=i\int d^d x~(-i)\delta(y^0-x^0)\delta(\bm{y}-\bm{x})G_a \phi(x^0, \bm{x})\\
+    &=G_a\phi(y) (=\delta \phi(y))\\
+\end{align}
+となっている. ただし, 3つ目の等号で, 同時刻正準交換関係$\slr{\phi(x), \pi(y)}:=\slr{\phi(x), \frac{\partial\mathcal{L}}{\partial(\partial_0 \phi(y))}}=i\delta^{0}(x^0-y^0)\delta(\bm{x}-\bm{y})$
+を用いた. 
+無限小変換の生成子$Q_a$が与えられれば, (微小とは限らない)パラメータの組$\theta=\{\theta^a\}_{a\in \Lambda}$($\Lambda$: 添字集合)を持つ対称性変換の演算子$U_{\theta^a}$を, 
+指数写像$\exp$により$U_{\theta}=e^{i\theta^a Q_a}$として与える事ができる. 
+この演算子の作用は, $\theta$で指定される群$G$の元が場の量$\phi$に対して引き起こす内部変換と同じである. 
+実際, これは場の演算子に対して変換
+$U_{\theta}\phi(x)U^{-1}_{\theta}=R_{\theta}\phi(x)$
+を引き起越す事がわかる
+\footnote{ここで, $R_{\theta}$: パラメータ$\{\theta_a\}_{a\in \Lambda}$
+($\Lambda$: 添字集合)でパラメタづけられた群$G$の元の, 場の量の空間(ヒルベルト空間)上での表現. 
+$G$がリー群である場合, (同じ連結成分に属する)各元は連続パラメータによって指定できる. 
+なお, $G$が行列群の場合はこの$R$は行列だと思って問題ない. }. 
+(Baker-Campbell-Hausdorffの公式から確かめられる), 
+一般に, 対称性演算子の作用によって非自明な変換を受ける場の演算子を\textbf{荷電演算子}と呼ぶ. 
+理論に大域的対称性がある時, 場の演算子は電荷の大きさが$1$の荷電演算子として働く. \\
+　荷電演算子は結合律を満たす: 
+$U_{\theta_2}U_{\theta_1}=e^{i\theta^a_2 Q_a}e^{i\theta^b_1 Q_b}=e^{i(\theta^a_1+\theta^a_2) Q_a}
+=U_{(\theta_1+\theta_2)}$. 
+最右辺は, パラメータ$\{\theta^a_1+\theta^a_2\}_{a\in \Lambda}$で指定される$G$の元に対応する対称性演算子. 
+また, $U_{\theta}$に対して$U_{-\theta}$はその逆元である. すなわち, 保存電荷から構成される対称性演算子は群$G$をなす. \\
+　ところで, 保存電荷には無限小変換の生成子のラベルがついており, これは
+リー群$G$の特定の表現$R$における独立な生成子の数に対応している. 
+従って, 例えば$G$として$U(1)$を取ると, 既約な$U(1)$表現は1次元なので保存電荷は1種類となり, 
+また$G$として$SU(3)$を取ると, 場の量が$SU(3)$の基本表現をなす(基本表現の表現空間を張る)時, 
+保存電荷の種類は3となる(クォークを記述するQCDはまさにこのような例). \\
+　以上をまとめると, 大域的な対称性(大域的変換に対する作用の不変性)がある理論は, 
+対称性の観点からは
+「保存するベクトルカレント$j^\mu$」, 
+「無限小変換の生成子としての保存電荷$Q$」, 
+「群$G$の対称性変換を生成する対称性演算子$U_{\theta}$」および
+「対称性演算子により非自明な変換を受ける荷電演算子$\phi$」の4つによって特徴づけられると言える. 
+\subsubsection{$U(1)$の例}
+$U(1)$対称性を持つ$(d+1)$次元の自由フェルミオンの例を考える. 作用は
+\begin{align}
+    S = \int d^{d+1} x~ \bar{\psi}(\gamma^\mu\partial_\mu + m)\psi
+\end{align}
+とする($\bar{\psi}:= i\psi^{\dagger}\gamma^0$). 作用から導かれる運動方程式は, 
+\begin{align}
+    -(\gamma^\mu \partial_\mu + m)\psi = 0, ~
+    \partial_\mu(\bar{\psi}\gamma^\mu) -m\psi = 0
+\end{align}
+となる. 
+この作用は, 場の量に対する$U(1)$内部変換
+\begin{align}
+    \psi\to e^{i\theta}\psi, ~ \psi^\dagger \to e^{-i\theta}\psi^{\dagger}
+\end{align}
+の下で不変であり, この内部対称性に対するNoetherカレントは
+\begin{align}
+    j^\mu = \frac{\partial \mathcal{L}}{\partial(\partial_\mu \psi)}i\psi = i\bar{\psi}\gamma^\mu \psi
+\end{align}
+となる. これは確かに保存則を満たす: 
+\begin{align}
+    \partial_\mu j^{\mu}
+    =i\partial_\mu(\bar{\psi}\gamma^\mu )\psi + i\bar{\psi}(\gamma^\mu\partial_{\mu}\psi)
+    \stackrel{\mathrm{EoM}}{=}im\bar{\psi}\psi - im\bar{\psi}\psi = 0~.
+\end{align}
+保存するカレントに対して, その時間成分の空間積分$Q=\int d^d x j^{0}(x)$は, 無限遠でカレントがゼロになる境界条件が課されている時, あるいは
+時間一定超曲面が境界を持たない時, 時間に依存しない保存量となる. 
+この時, $Q$は無限小変換の生成子として働く: $[iQ, \psi]=i\psi$. この時, 
+$Q$から定義されるユニタリー演算子$U_\theta = e^{i\theta Q}$は, $\psi$に対して$U(1)$の元$g=e^{i\theta}$による有限変換と同じ変換を引き起こす: 
+$U_{\theta}\psi U^{-1}_{\theta} = R_\theta \psi = e^{i\theta}\psi$. 
+この$U_\theta$たちが群$U(1)$を生成することは, 容易に確認できる. 
+%この辺はNamekiの動画を例に
+%\subsubsection{相関関数と対称性}
+%以上は古典的な(量子化する前の)作用の対称性であったが, 経路積分量子化の下では運動方程式を満たす経路(=古典解)以外からの寄与も取り入れる必要がある. 
+%すなわち, 経路積分量子化のもとでは, 作用そのものではなく相関関数の対称性(不変性)を考えなければならない. 
+\section{「対称性」の概念の一般化}
+以下では, 場の理論の持つ「対称性」の概念を一般化した枠組みについて議論する. 
+一般化の方向性としては主に2つある: 
+\begin{itemize}
+    \item (1)対称性を「高次元化」する: 荷電演算子を点演算子から$p$次元に広がる演算子へと拡張する
+    \item (2)対称性の「群構造を弱める」: 逆元が存在しないような変換に対する不変性を, ある種の「対称性」とみなす
+\end{itemize}
+(1)の方向性により得られる場の理論の構造は\textbf{higher-form symmetry}と呼ばれ, 
+(2)の方向性により得られる構造は\textbf{non-invertible symmetry}と呼ばれる. 
+\subsection{対称性を特徴付けるもの}
+先の例で見たように, 対称性を持つ場の理論には次のような特徴がある. 
+\begin{itemize}
+    \item (1)保存するカレント$j_\mu$がある(すなわち, $\partial_\mu j^{\mu}=0$)
+    \item (2)$j^\mu$の空間積分(電荷)$Q=\int d^{d}x~j_{0}(x)$があり, これは時間変化しない量である
+    \item (3)対称性演算子$U_g=e^{i\alpha Q}$が存在し, 局所的な場$\varphi$(charged operator)に対する変換を引き起こす: 
+    \begin{align}
+        U_g \varphi(x) = R_g\varphi(x)
+    \end{align}
+\end{itemize}
+いま, これを次のように言い換えよう. 
+\begin{itemize}
+    \item (1')保存する1-form $j=j_{\mu}dx^{\mu}$がある(すなわち, $d\star j=0$)
+    \item (2')$j$のd次元部分空間$M^{d}$上の積分量$Q=\int_{M^d}\star j$があり, これは$M^d\to M^d + \partial N^{d+1}$なる"topological deformation"に対して不変である
+    \item (3')'$d$次元超平面上に"topological operator"$U_g(M^d)=e^{i\alpha Q}$が存在し, 超平面とリンクを持つ"charged operator"$\varphi_q$に対して変換を引き起こす. 例えば, $U(1)$対称性の場合は次の通り: 
+    \begin{align}
+        U_g(M^d) \varphi_q(x) = e^{i\alpha q \mathrm{Link}(M^d, x)}\varphi(x)
+    \end{align}
+\end{itemize}
+これを「$0$次対称性($0$-form symmetry)」の定義として位置付けることにすると, 
+その「高次元化」として, 場の理論に対する"$p$-form symmetry"を, 次の性質を満たすものとして特徴付ける事ができる. 
+\begin{itemize}
+    \item (I)保存する$(p+1)$-form $j$がある
+    \item (II)$j$の$(d-p)$次元部分空間$\Sigma^{d-p}$上の積分量$Q=\int_{\Sigma^{d-p}}\star j$があり, これは$M^{d-p}\to M^{d-p} + \partial N^{d-p+1}$なる"topological deformation"に対して不変である
+    \item (III)$(d-p)$次元トポロジカル演算子$U_g(\Sigma^{d-p})=e^{i\alpha Q}$が存在し, $p$次元の荷電演算子$\mathcal{O}_q(\Sigma^p)$に対する変換を引き起こす. $U(1)$対称性の場合は次の通り: 
+    \begin{align}
+        U_g(\Sigma^{d-p}) \mathcal{O}(\Sigma^p) = e^{i\alpha q \mathrm{Link}(\Sigma^{d-p}, \Sigma^p)}\varphi(\Sigma^p)
+    \end{align}
+\end{itemize}
+以下では, (1')(2')(3')の意味について説明する. 
+\subsubsection{re: 対称性と保存則}
+まず, カレントの保存則$\partial_\mu j^{\mu}=0$について再考する. 
+この保存カレントは座標の添字を1つ持つベクトル量であるので, ここからその共変ベクトル, あるいは1-form 
+$j=j_\mu dx^\mu$を考える事ができる. 
+いま, この1-formに対して, その"Hodge双対"
+\begin{align}
+    \star: \Omega^{1}(M^{d+1})\to \Omega^{d}(M^{d+1}), ~j\mapsto \star j = \frac{\sqrt{|\det{g}|}}{d!}\epsilon_{\mu \mu_1\cdots \mu_d}j^{\mu}dx^{\mu_1}\wedge \cdots \wedge dx^{\mu_d}
+\end{align}
+を考えると(Minkowski時空の場合$|\det{g}|=1$), 
+カレント保存則$\partial_\mu j^\mu=0$が成り立つ時, この$d$-form$\star j$は閉形式になる: 
+\begin{align}
+    d\star j = \frac{\sqrt{1}}{d!}\frac{\partial j^\mu}{\partial x^\mu}dx^{1}\wedge \cdots \wedge dx^{d+1}=0~
+    (\because \partial_\mu j^\mu = 0). 
+\end{align}
+すなわち, 保存カレント$j^\mu$の存在は, 閉$d$-form$\star j$の存在と換言できる. \\
+　次に, 保存電荷$Q$の意味について考える. 
+$d+1$次元時空における時刻一定面を$M^{d}_t$と書くと, 保存電荷は
+それが定義される積分領域を明示した形で
+$Q(M^d_t)=\int_{M^d_t} j^{0}dx^{1}\cdots dx^{d}$と書ける. 
+電荷保存則とはこの$Q$が時間に依存しないという事だった. すなわち, 
+\begin{align}
+    Q(M^d_{t'})-Q(M^d_t)
+    =\int_{M^d_{t'}-M^d_t} j^{0}dx^{1}\cdots dx^{d} =0
+\end{align}
+となる. これは, 演算子$U_{\theta}(M^d_t)=e^{i\theta Q(M^d_t)}$の期待値が
+時刻一定面を変更させても不変であることを示している. 
+この関係を, (1+1)次元時空上で図式的に表すと, \\
+\begin{figure}[!ht]
+    \centering
+    \begin{circuitikz}
+        \tikzstyle{every node}=[font=\LARGE]
+        \draw  (0,12.5) rectangle (3.75,8.75);
+        \draw [->, >=Stealth] (-0.5,8.25) -- (-0.5,9.5);
+        \draw [->, >=Stealth] (-0.5,8.25) -- (0.75,8.25);
+        \node [font=\LARGE] at (1,8.25) {$x$};
+        \node [font=\LARGE] at (-0.5,9.75) {$t$};
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (0,11.25) .. controls (1.75,11.25) and (2,11.25) .. (3.75,11.25);
+        \node [font=\Large] at (1.75,11.75) {$U_\theta(M^d)$};
+        \node [font=\LARGE] at (-0.25,11.25) {$t'$};
+        \draw  (-6.75,12.5) rectangle (-3,8.75);
+        \draw [->, >=Stealth] (-7.25,8.25) -- (-7.25,9.5);
+        \draw [->, >=Stealth] (-7.25,8.25) -- (-6,8.25);
+        \node [font=\LARGE] at (-5.75,8.25) {$x$};
+        \node [font=\LARGE] at (-7.25,9.75) {$t$};
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-6.75,10.5) .. controls (-5,10.5) and (-4.75,10.5) .. (-3,10.5);
+        \node [font=\Large] at (-5,11.25) {$U_\theta(M_{t}^d)$};
+        \node [font=\LARGE] at (-7,10.75) {$t$};
+        \node [font=\LARGE] at (-1.75,10.5) {$=$};
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-6.75,10.5) -- (-4.75,10.5);
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (0,11.25) -- (2,11.25);
+        \end{circuitikz}
+    \label{fig:my_label}
+    \end{figure}
+\\のようになる. あるいは, 関係式$U_\theta(M^d_{t'})U^{-1}_{\theta}(M^d_t)=1$を図式的に表して, 次のように理解しても良い. \\
+\begin{figure}[!ht]
+    \centering
+    \resizebox{1\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    \draw  (-6.75,12.5) rectangle (-3,8.75);
+    \draw  (-0.75,12.5) rectangle (3,8.75);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-6.75,11.25) .. controls (-5,11.25) and (-4.75,11.25) .. (-3,11.25);
+    \node [font=\Large] at (-5,11.75) {$U_\theta(M_{t'}^d)$};
+    \node [font=\LARGE] at (-7,11.5) {$t'$};
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-6.75,10.5) .. controls (-5,10.5) and (-4.75,10.5) .. (-3,10.5);
+    \node [font=\Large] at (-5,10) {$U_\theta(M_{t}^d)$};
+    \node [font=\LARGE] at (-7,10.5) {$t$};
+    
+    \node [font=\LARGE] at (-2,10.75) {$=$};
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-3,10.5) -- (-5,10.5);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-6.75,11.25) -- (-4.75,11.25);
+    \draw  (5,12.5) rectangle (8.75,8.75);
+    \node [font=\LARGE] at (4,10.75) {$=$};
+    \node [font=\Large] at (1,11.75) {$U_\theta(M_{t'}^d - M_t^d)$};
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-0.75,11) .. controls (1,11) and (1.25,11) .. (3,11);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-0.75,11) -- (1.25,11);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-0.75,10.75) .. controls (1,10.75) and (1.25,10.75) .. (3,10.75);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (3,10.75) -- (1,10.75);
+    \end{circuitikz}
+    }%
+    \label{fig:my_label}
+    \end{figure}
+    最右辺は, 時空上に非自明な演算子が何もないこと, すなわち恒等演算子$\hat{1}$の真空期待値を表している. 
+    \subsubsection{トポロジカル演算子}
+    　さて, 今までは保存電荷は時空の時間一定面上の積分として定義されていたが, 
+    これを一般化して, 時空上の任意の$d$次元の(余次元1の)閉じた超曲面$\Sigma^d$上での積分にしてみよう: 
+    \begin{align}
+        Q=\int_{\Sigma^d} \star j
+        =\int \vec{n}_d \cdot \star j 
+    \end{align}
+    ただし, $\vec{n}_d$は超曲面$\Sigma^d$の法線ベクトルである. 
+    $\vec{n}_d$を時間一定面と垂直に取ると, 従来の電荷の定義$\int j^{0}$に一致する. 
+    対応して, 対称性演算子も時空上の$d$次元閉超曲面上で定義する: 
+    $U_\theta(\Sigma^d)=e^{i\theta Q(\Sigma^d)}$. 
+    ここで, $\star j$が閉形式であることから, 適当な$(d+1)$次元の部分時空の境界$\partial N$の上での積分は消える: 
+    \begin{align}
+        \int_{\partial N} \star j = \int_{N} d\star j = 0. ~ (\because \mathrm{Stokes'~theorem})
+    \end{align}
+ゆえ, 対称性演算子$U_\theta(\Sigma)$は, 閉曲面$\Sigma^d$に「任意の境界$\partial N^{d+1}$を付け加える」ような変形に対して不変である
+\footnote{つまり, 対称性演算子は閉曲面そのものではなく, その同値類に依存する. 
+ここで, 同値関係は, 2つの(向きづけられた)閉曲面の差が, 何らかの1次元高い空間の境界として書けるような場合に2者を同一視する
+ものとする: $M^d \sim M^{d'}$ where $M^{d'}-M^d = \partial N^{d+1}$. 
+これは, (同じラベルを持つ)対称性演算子が時空$X$の$d$次のホモロジー群: $H_{d}(X)=\mathrm{ker}~\partial_d/\mathrm{Im}~\partial_{d+1}$
+の異なる元の数だけ区別されるということを意味する
+(そのため, 時空が非自明なトポロジーを持っている時は, 異なるホモロジー群の元でラベルされる(=区別される)あらゆる超閉曲面を考える必要がある. 
+例えば, $d=1+1$で時空をトーラス$T^2$に取る時, 
+$d=1$次元の閉曲面=1次元閉ループには本質的に4種類存在する: 
+(1)可縮なもの, (2)穴を囲うもの, (3)側面を囲うもの, (4)(2)と(3)の形式和. 
+より, 互いに連続変形で移り変われないトポロジカル演算子の配位が4通り存在する. ). 
+なお, これ以降基本的に時空には三角形分割が入っているものとする. \\
+　例えば, 時刻一定面は先の同値関係の下で全て同値なので, 
+時刻一定面上で定義された対称性演算子は時間変化の下で同じ. 
+}
+境界を付け加える操作は閉曲面の連続変形(トポロジーを変えない変形)であるため, 
+対称性演算子は閉曲面の連続変形の下で不変であるという意味で\textbf{トポロジカル演算子}と呼ばれる性質を持つ. 
+図で表すと次の通り. \\
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    \draw  (1.5,-6.75) rectangle (5.25,-10.5);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (1.5,-8.75) .. controls (3.25,-8.75) and (3.5,-8.75) .. (5.25,-8.75);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (1.5,-8.75) -- (3.5,-8.75);
+    \draw  (-5,-6.75) rectangle (-1.25,-10.5);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-5,-8.75) .. controls (-3.25,-8.75) and (-3,-8.75) .. (-1.25,-8.75);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, short] (2.75,-8.5) .. controls (3.5,-7.25) and (3.75,-7.75) .. (4.25,-8.5);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, short] (2.75,-8.5) -- (4.25,-8.5);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, ->, >=Stealth] (3.5,-8.5) -- (3.25,-8.5);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, ->, >=Stealth] (3.5,-7.75) .. controls (3.75,-7.75) and (3.5,-7.75) .. (3.75,-7.75) ;
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-5,-8.75) -- (-3,-8.75);
+    \node [font=\LARGE] at (0,-8.75) {$=$};
+    \node [font=\large] at (-3,-8.3) {$U_\theta(M_{t}^d)$};
+    \node [font=\large] at (3.5,-9.1) {$U_\theta(M_{t}^d)$};
+    \node [font=\large] at (3.5,-7.5) {$U_\theta(\partial N^{d+1})$};
+    \node [font=\large] at (9.6,-9.1) {$U_\theta(M_{t}^d+\partial N^{d+1})$};
+    \draw  (7.75,-6.75) rectangle (11.5,-10.5);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (7.75,-8.75) .. controls (9.5,-8.75) and (9.75,-8.75) .. (11.5,-8.75);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, short] (9,-8.75) .. controls (9.75,-7.5) and (10,-8) .. (10.5,-8.75);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, ->, >=Stealth] (9.75,-8) .. controls (10,-8) and (9.75,-8) .. (10,-8) ;
+    \node [font=\LARGE] at (6.5,-8.75) {$=$};
+    \draw [ color={rgb,255:red,255; green,255; blue,255}, line width=0.9pt, short] (9,-8.75) -- (10.5,-8.75);
+    \end{circuitikz}
+    \label{fig:my_label}
+    \end{figure}
+この図式は, 対称性演算子$U_{\theta}(\Sigma^d)$が, 
+閉曲面に対する任意の連続変形のもとでその期待値を不変に保つことを示している
+(時空$\Box$の中に演算子の定義域を線分(高次元なら曲面)で示したこのような図式の間の等式は, 
+その演算子の真空期待値(あるいは, 演算子によって"twist"されたヒルベルト空間の分配関数)に関する等式と解釈すべきである)
+. \\
+　$d+1$次元時空内の$d$次元閉超曲面上で定義された対称性演算子
+$U_{\theta}(\Sigma^d)$に対して, 
+荷電演算子$\mathcal{O}(x)$は$0$次元の点演算子である. 
+$\mathcal{O}=\phi$として, $U_{\theta}(\Sigma^d)$の$\phi(x)$に対するある時刻での作用: 
+$U_{\theta}(M_t^d)\phi(x) U^{-1}_{M_t^d} = R_{\theta}\phi(x)$を図示すると, 
+$d+1=2, 3$の場合のそれぞれについて次のようになる. 
+\begin{figure}[H]
+    \centering
+    \resizebox{1\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\normalsize]
+    
+    \draw  (1.5,-8.75) rectangle (5.25,-12.5);
+    \draw  (-5,-8.75) rectangle (-1.25,-12.5);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-5,-11) .. controls (-3.25,-11) and (-3,-11) .. (-1.25,-11);
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-1.25,-11) -- (-3.25,-11);
+    \node [font=\LARGE] at (0,-10.75) {$=$};
+    \draw  (7.75,-8.75) rectangle (11.5,-12.5);
+    \node [font=\LARGE] at (6.5,-10.75) {$=$};
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-5,-10.5) .. controls (-3.25,-10.5) and (-3,-10.5) .. (-1.25,-10.5);
+    \node [font=\normalsize] at (-3.25,-11.5) {$U^{-1}_{\theta}(M_t^d)$};
+    \node [font=\normalsize] at (-3.25,-10) {$U_{\theta}(M_{t+\Delta t}^d)=U_{\theta}(M_{t}^d)$};
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-5,-10.5) -- (-3,-10.5);
+    \node [font=\normalsize] at (-5.5,-11) {$t$};
+    \node [font=\normalsize] at (-5.5,-10.5) {$t+\Delta t$};
+    \draw [ line width=0.9pt ] (2,-7.5) circle (0cm);
+    \node [font=\normalsize] at (-3.25,-10.75) {$\bullet$};
+    \node [font=\normalsize] at (-2.1,-10.75) {$\phi(x)$};
+    \node [font=\normalsize] at (3.25,-10.75) {$\bullet$};
+    \node [font=\normalsize] at (3.75,-10.75) {$\phi(x)$};
+    \draw [ color={rgb,255:red,4; green,51; blue,255} , line width=0.9pt ] (3.25,-10.75) circle (0.25cm);
+    \node [font=\normalsize, color={rgb,255:red,4; green,51; blue,255}] at (9.5,-10.75) {$\bullet$};
+    \node [font=\normalsize] at (10.3,-10.75) {$R_{\theta}\phi(x)$};
+    \end{circuitikz}
+    }
+    \caption{$d=1+1$次元時空における, 対称性演算子$U_{\theta}$の荷電演算子$\phi$に対する作用. }
+    \label{fig:my_label}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \resizebox{1\textwidth}{!}{%
+        \begin{circuitikz}
+        \tikzstyle{every node}=[font=\LARGE]
+        \draw [ line width=0.9pt ] (-2,-17.75) -- (6.25,-17.75) -- (10.25,-14.75) -- (2,-14.75) -- cycle;
+        \draw [ line width=0.9pt ] (19.25,-11) circle (0cm);
+        \draw [ line width=0.9pt ] (17.75,-14.5) circle (3.25cm);
+        \draw [line width=0.9pt, ->, >=Stealth] (-2.5,-19.25) -- (-2.5,-16.75);
+        \draw [line width=0.9pt, ->, >=Stealth] (-2.5,-19.25) -- (0,-19.25);
+        \draw [line width=0.9pt, ->, >=Stealth] (-2.5,-19.25) -- (-0.25,-17.75);
+        \node [font=\large, rotate around={-90:(0,0)}] at (4,-15.5) {$\bullet$};
+        \draw [ line width=0.9pt ] (-1.5,-15.25) -- (6.75,-15.25) -- (10.75,-12.25) -- (2.5,-12.25) -- cycle;
+        \draw [line width=0.9pt, ->, >=Stealth] (0,-15.25) -- (3,-15.25);
+        \draw [ line width=0.9pt ] (17.75,-14.25) ellipse (3.25cm and 0.5cm);
+        \draw [ line width=0.9pt ] (17.75,-14.75) ellipse (3.25cm and 0.5cm);
+        \draw [line width=0.9pt, ->, >=Stealth] (17.5,-14.75) -- (18,-14.75);
+        \draw [line width=0.9pt, ->, >=Stealth] (18,-13.75) -- (17.75,-13.75);
+        \draw [line width=0.9pt, ->, >=Stealth] (18.25,-15.25) -- (17.75,-15.25);
+        \draw [line width=0.9pt, ->, >=Stealth] (17.5,-14.25) -- (18,-14.25);
+        \draw [ color={rgb,255:red,255; green,255; blue,255} , line width=0.9pt ] (21,-14.25) rectangle (21.25,-14.75);
+        \draw [ line width=0.9pt ] (29.5,-11.25) circle (0cm);
+        \draw [ color={rgb,255:red,255; green,255; blue,255} , line width=0.9pt ] (31.25,-14.5) rectangle (31.5,-15);
+        \draw [ color={rgb,255:red,255; green,255; blue,255} , line width=0.9pt ] (14.25,-14.25) rectangle (14.5,-14.75);
+        \draw [ line width=0.9pt ] (28.25,-14.5) circle (3.25cm);
+        \node [font=\large] at (17.75,-14.5) {$\bullet$};
+        \node [font=\normalsize] at (28.25,-14.5) {$\bullet$};
+        \draw [ line width=0.9pt , dashed] (28.25,-14.5) ellipse (3.25cm and 0.75cm);
+        \draw [line width=0.9pt, ->, >=Stealth] (7,-12.25) -- (6,-12.25);
+        \draw [line width=0.9pt, ->, >=Stealth] (3,-17.75) -- (2.5,-17.75);
+        \draw [line width=0.9pt, ->, >=Stealth] (5.25,-14.75) -- (5.5,-14.75);
+        \node [font=\large] at (4.75,-13.5) {$U_{\theta}(M_{t+\Delta}^d)$};
+        \node [font=\large] at (4.25,-16.25) {$U^{-1}_{\theta}(M_t^d)$};
+        \node [font=\LARGE] at (12,-14.75) {$=$};
+        \node [font=\LARGE] at (23,-14.75) {$=$};
+        \node [font=\LARGE] at (34.25,-14.75) {$=$};
+        \node [font=\LARGE] at (38,-14.75) {$\bullet$};
+        \node [font=\LARGE] at (38.5,-14.25) {$R_{\theta}\phi(x)$};
+        \node [font=\LARGE] at (5,-15.25) {$\phi(x)$};
+        \end{circuitikz}
+        }%
+        \caption{$d=2+1$次元時空における, 対称性演算子$U_{\theta}$の荷電演算子$\phi$に対する作用. }
+        \label{fig:my_label}
+        \end{figure}
+このように, 対称性演算子の間に荷電演算子が「囲われる」, あるいは適当なtopological deformationによってそのような配位にできる時, 
+荷電演算子は対称性演算子によって非自明な作用を受けることになる. 
+別の見方として, 対称性演算子が荷電演算子を「乗り越える」際に非自明な変換を受ける, という解釈もできる. すなわち, 図式で描くと
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \tikzstyle{every node}=[font=\LARGE]
+        \draw  (0,12.5) rectangle (3.75,8.75);
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (0,10.75) -- (3.75,10.75);
+        \draw  (-6.75,12.5) rectangle (-3,8.75);
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=0.9pt, short] (-6.75,10.75) -- (-3,10.75);
+        \node [font=\large] at (-4.75,11.25) {$U_\theta(M_{t}^d)$};
+        \node [font=\large] at (2,10.25) {$U_\theta(M_{t}^d)$};
+        \node [font=\LARGE] at (-1.75,10.5) {$=$};
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (-6.75,10.75) -- (-4.75,10.75);
+        \draw [ color={rgb,255:red,4; green,51; blue,255}, ->, >=Stealth] (0,10.75) -- (2,10.75);
+        \node [font=\normalsize] at (-4.7,10.25) {$\bullet$};
+        \node [font=\normalsize] at (-4,10.25) {$\phi(x)$};
+        \node [font=\normalsize] at (2,11.25) {$\bullet$};
+        \node [font=\normalsize] at (2.7,11.25) {$R_{\theta}\phi(x')$};
+        \end{circuitikz}
+    \label{fig:my_label}
+    \end{figure}
+    \noindent
+    という変換になる. 
+    これは, 荷電演算子が対称性演算子を何も無しに「すり抜ける」ことは出来ないということを意味する. 
+    そういう意味で, 荷電演算子は時空の中の非自明な点=\textbf{defect}をなしていると考えられる. \\
+　このような, 対称性演算子に対する荷電演算子の作用を, 経路積分の観点から議論しよう. 
+いま, 
+閉曲面$\Sigma^d = \partial N^{d+1}$上に対称性演算子$U_{\theta}(\Sigma^d)$が定義されているとする
+\footnote{既に見たように, 閉曲面上の$U_{\theta}$による演算子$\mathcal{O}$への作用$U_{\theta}(\Sigma^d)\mathcal{O}$は, 
+時間一定面上の$U_{\theta}(M_t^{d})$およびその逆元で挟んだ時の作用$U_{\theta}(M^d_t)\mathcal{O}U^{-1}_{\theta}(M^d_t)$
+とトポロジカルに等価}. 
+この時, 時空上の場の演算子のうち, $N^{d+1}$に含まれるもののみが$U_{\theta}$による変換を受ける. 
+\begin{figure}[H]
+    \centering
+    \resizebox{0.4\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    \draw [ line width=0.9pt ] (8.25,5.5) rectangle (20.75,-6.75);
+    \draw [ color={rgb,255:red,227; green,36; blue,0} , fill={rgb,255:red,168; green,198; blue,254}, line width=1.6pt ] (14.5,-0.75) ellipse (4.75cm and 2.75cm);
+    \node [font=\LARGE] at (13,-1.75) {$N^{d+1}$};
+    \node [font=\LARGE] at (14.5,-0.75) {$\bullet$};
+    \node [font=\LARGE] at (18.25,3.5) {$\bullet$};
+    \node [font=\LARGE] at (15.25,-1) {$x_1$};
+    \node [font=\LARGE] at (19,3.25) {$x_2$};
+    \node [font=\LARGE, color={rgb,255:red,255; green,38; blue,0}] at (16.75,-4) {$M^{d}=\partial N^{d+1}$};
+    \end{circuitikz}
+    }%
+    \caption{時空上の閉曲面上に演算子$U_\theta$がいる時, 水色領域(内側)の荷電演算子のみが対称性変換を受ける. }
+    \end{figure}
+    \noindent
+    簡単のため$U(1)$の場合を考え, 対称性演算子を$e^{i\theta Q(M^d_t)}$のように書く. 
+    すると, この演算子による変換は, 時空座標に依存するパラメータ
+    $$
+        \theta(x) =
+        \begin{cases}
+          \theta,  & \text{if }~ x \in N^{d+1} \\
+          0,  & \text{otherwise }
+        \end{cases}
+        $$
+        による時空全体への変換とみなすことができる. 
+        より, このような変換による作用の変化分は, \eqref{eq: deltaS}式を参考にすると
+        \begin{align}
+            \label{eq: deltaS}
+    \delta S 
+    &=\int d^{d+1}x 
+    \partial_\mu\ler{\frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)} G_a \phi}\epsilon^a (x)\\
+    &=\int_{x\in N^{d+1}} d^{d+1}x \partial_\mu j^{\mu}\theta
+        \end{align}
+\subsection{Higher-form symmetry}
+さて, 今まで見てきたように, 群$G$の(内部)対称性のある$d+1$次元時空上の場の理論には, 
+「closed $d$-form
+\footnote{$1$-formのHodge双対. }
+の保存カレント」
+「$d$次元閉超曲面上の保存電荷/ 対称性演算子」
+「$0$次元の荷電演算子」
+という要素が備わっていた. 
+いま, 理論がこのような性質を持つ時, \textbf{$0$-form symmetry}があると呼ぶことにしよう. 
+$0$-formの$0$とは, 荷電演算子が$0$次元の点演算子($0$-form, つまりただの関数)であることに由来する. \\\\
+　$0$次元の荷電演算子に作用する演算子によって生成される対称性を$0$-form symmetryと呼ぶならば, 
+$p$次元の広がりを持つ(=$p$次元超曲面上での$p$-formの積分によって定義される)荷電演算子およびそれに作用する演算子がある時, 
+その演算子の生成する「対称性」を, \textbf{$p$-form symmetry}と呼ぶのは自然であろう. \\
+$p$-form symmetryを議論する上では, 演算子が定義されるあらゆる超曲面を$d+1$次元時空内への埋め込みと考えて, 
+次元の代わりに余次元(codimension)で考えると便利なことがある. 例えば, 
+$0$-form symmetryの場合, 対称性演算子は次元$d$の超曲面上で定義されているが, 
+これは$d+1$次元時空の中の余次元$1$の超曲面とも言える. 
+この自然な拡張として, $p$-form symmetryの場合の対称性演算子は, 
+$d+1$次元時空の中の余次元$(d+1)-(p+1)=d-p$なる超曲面上で定義されたものとなる. 
+以下に, $0$-form symmetryと$p$-form symmetryの間の関係を示す. \\
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+         & $0$-form symmetry & $p$-form symmetry \\
+        \hline
+        保存カレント & $d$-form & $(d-p)$-form \\
+        \hline
+        保存電荷/対称性演算子 & over codim-$1$ surface& over codim-$(p+1)$ surface\\
+        \hline
+        荷電演算子 & $0$-dim defect & $p$-dim defect \\
+        \hline
+    \end{tabular}
+    \caption{$0$-form symmetryと$p$-form symmetryの間のアナロジー. }
+    \label{tab:label}
+\end{table}
+なお, ここで$p$-form symmetryを「対称性」と括弧付きで書いたのは, 
+通常の意味でのgroup-likeな対称性とは異なるからである. 
+例えば, $0$-form symmetry(群の対称性)の場合, 
+非可換な群$G$を考えれば, その対称性演算子の作用同士は非可換になり得る. 
+一方で, $p$-form symmetryの場合は必ず可換である. 
+\subsubsection{例: $(3+1)$次元$U(1)$Maxwell理論}
+3+1次元の時空において, 物質場が存在しない「純粋な」Maxwell理論を考えてみよう. 
+ゲージ場の配位を記述する作用は, $U(1)$ Yang-Mills作用
+\begin{align}
+    S = \frac{1}{2g^2} \int F\wedge \star F = -\frac{1}{4g^2}\int F_{\mu\nu}F^{\mu\nu}
+\end{align}
+である. ここで, $F=dA$は場の強さを表す$2$-form. 
+$A$のこれは, $2$-form current$\star F$に$F$を結合させたものとみなすことが出来る. 
+\newpage
+\section{Preliminaries}
+\input{preliminaries.tex}
+\begin{thebibliography}{99}
+    %\bibitem{Hidaka} \href{}{}
+\end{thebibliography}
+
+
+
+\end{document}

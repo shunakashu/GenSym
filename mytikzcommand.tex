@@ -1,0 +1,34 @@
+%メモ: tikzsetでtikzコマンドを定義できる
+
+
+%線分の中間に矢印を描くためのコマンド
+%使い方: \draw[black, ->-={.5}{red}] (0,0)--(1,1);
+%↑の時, (0,0)--(1,1)に伸びる線分の中間に赤い矢印が描かれる
+\tikzset{->-/.style 2 args={
+    postaction={decorate},
+    decoration={markings, mark=at position #1 with {\arrow[thick, #2]{>}}}
+    },
+    ->-/.default={0.5}{}
+}
+
+\tikzset{-<-/.style 2 args={
+    postaction={decorate},
+    decoration={markings, mark=at position #1 with {\arrow[thick, #2]{<}}}
+    },
+    -<-/.default={0.5}{}
+}
+
+
+%3次元で交差する線分を描くコマンド
+%上に来る線分を後に書く
+%使い方: 
+%\draw (0,0)--(1,1);
+%\draw[overarc] (0,1)--(1,0);
+\tikzset{
+    overarc/.style={
+        white, double=red, double distance=1.2pt, line width=2.4pt
+    }
+}
+
+
+%
