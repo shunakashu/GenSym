@@ -1,8 +1,8 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.12.28)  21 MAY 2025 12:32
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022)  (format=lualatex 2022.12.28)  19 MAY 2025 01:15
  restricted system commands enabled.
  file:line:error style messages enabled.
-**/Users/shunakashu/OshikawaLab/studyset/GenSym/GenSym2.tex
-(/Users/shunakashu/OshikawaLab/studyset/GenSym/GenSym2.tex
+**/Users/shunakashu/OshikawaLab/studyset/GenSym/GenSym3.tex
+(/Users/shunakashu/OshikawaLab/studyset/GenSym/GenSym3.tex
 LaTeX2e <2021-11-15> patch level 1
 Lua module: luaotfload 2022-03-18 3.21 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -1029,21 +1029,12 @@ Package: cite 2015/02/27  v 5.5
 Package: lltjp-array 2019-07-18 Patch to array for LuaTeX-ja
 )
 Package translations Info: No language package found. I am going to use `english' as default language. on input line 108.
- (./out/GenSym2.aux
+ (./out/GenSym3.aux
 
-LaTeX Warning: Label `fig:my_label' multiply defined.
-
-
-LaTeX Warning: Label `fig:my_label' multiply defined.
-
-
-LaTeX Warning: Label `lrunits' multiply defined.
-
-
-LaTeX Warning: Label `partitionfunc' multiply defined.
+LaTeX Warning: Label `TCmodel' multiply defined.
 
 )
-\openout1 = GenSym2.aux
+\openout1 = GenSym3.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
 LaTeX Font Info:    ... okay on input line 108.
@@ -1105,10 +1096,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 108.
 LaTeX Info: Redefining \pageref on input line 108.
 LaTeX Info: Redefining \nameref on input line 108.
- (./out/GenSym2.out) (./out/GenSym2.out)
+ (./out/GenSym3.out) (./out/GenSym3.out)
 \@outlinefile=\write5
 
-\openout5 = GenSym2.out
+\openout5 = GenSym3.out
  (/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
@@ -1146,25 +1137,20 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 7.3977pt on input line 110.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 5.54828pt on input line 110.
-(load cache: extra_lmroman9-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 111.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 111.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 116.
+(Font)              scaled to size 9.24713pt on input line 112.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 116.
+(Font)              scaled to size 9.24713pt on input line 112.
 (load cache: extra_lmsans10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 116.
+(Font)              scaled to size 13.31586pt on input line 112.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 116.
+(Font)              scaled to size 13.31586pt on input line 112.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 116.
+(Font)              scaled to size 13.31586pt on input line 112.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 13.31586pt on input line 116.
-(load cache: extra_lmsans12-regular.luc) (./out/GenSym2.toc
+(Font)              scaled to size 13.31586pt on input line 112.
+(load cache: extra_lmsans12-regular.luc) (./out/GenSym3.toc
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 6.47299pt on input line 2.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
@@ -1176,209 +1162,66 @@ LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 )
 \tf@toc=\write6
 
-\openout6 = GenSym2.toc
+\openout6 = GenSym3.toc
  [1
 
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 120.
-(load cache: extra_lmroman7-regular.luc)
+(Font)              scaled to size 11.09656pt on input line 115.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 117.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 117.
+
+[2](load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 6.47299pt on input line 133.
+(Font)              scaled to size 6.47299pt on input line 130.
 (load cache: extra_lmroman6-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 5.54828pt on input line 135.
-(load cache: extra_lmroman10-bold.luc)
+(load cache: extra_lmroman5-regular.luc)
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 168.
+ [3](load cache: extra_lmroman10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 145.
+(Font)              Font shape `JT3/gt/m/n' tried instead on input line 187.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 145.
+(Font)              scaled to size 9.24713pt on input line 187.
 LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 145.
+(Font)              Font shape `JY3/gt/m/n' tried instead on input line 187.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 145.
- [2](load cache: extra_lmroman10-italic.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 188.
+(Font)              scaled to size 9.24713pt on input line 187.
+(load cache: extra_lmroman9-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 188.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 188.
+(Font)              scaled to size 8.32242pt on input line 212.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 188.
- [3] [4] [5]
-Overfull \hbox (17.81642pt too wide) detected at line 325
-[][]
- []
-
-(load cache: extra_lmroman8-italic.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <8> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 361.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 361.
-LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <8> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 361.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 7.3977pt on input line 361.
-
-Overfull \hbox (25.59482pt too wide) detected at line 371
-[][]
- []
-
-[6]
-Overfull \hbox (43.46571pt too wide) detected at line 392
-[][]
- []
-
-
-Overfull \hbox (25.45198pt too wide) detected at line 399
-[][]
- []
-
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 429.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 429.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 429.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 23.00687pt on input line 429.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 429.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 429.
-[7] [8]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 470.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 470.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 470.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 470.
-
-[9] [10]
-<ActionToWilsonLine.jpg, id=238, 727.71875pt x 280.54813pt>
-File: ActionToWilsonLine.jpg Graphic file (type jpg)
-<use ActionToWilsonLine.jpg>
-Package luatex.def Info: ActionToWilsonLine.jpg  used on input line 633.
-(luatex.def)             Requested size: 362.48892pt x 139.74716pt.
-
-
-LaTeX Warning: Reference `ActionWilson' on page 11 undefined on input line 648.
-
-[11<./ActionToWilsonLine.jpg>]
-Overfull \hbox (54.57123pt too wide) detected at line 686
-[][]
- []
-
-[12] [13] [14](load cache: extra_lmroman5-regular.luc)
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 799.
-<pentagon.png, id=278, 901.3675pt x 273.02pt>
-File: pentagon.png Graphic file (type png)
-<use pentagon.png>
-Package luatex.def Info: pentagon.png  used on input line 841.
-(luatex.def)             Requested size: 317.17522pt x 96.07083pt.
- [15]
-<lrunits.png, id=288, 344.78813pt x 141.02687pt>
-File: lrunits.png Graphic file (type png)
-<use lrunits.png>
-Package luatex.def Info: lrunits.png  used on input line 848.
-(luatex.def)             Requested size: 317.17522pt x 129.73337pt.
- [16<./pentagon.png><./lrunits.png>] [17]
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 963.
-(load cache: extra_lmsans10-oblique.luc)
-LaTeX Font Info:    Font shape `JT3/gt/m/it' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 963.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 963.
-LaTeX Font Info:    Font shape `JY3/gt/m/it' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 963.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 963.
-<hexagon.jpeg, id=311, 1342.01375pt x 866.23625pt>
-File: hexagon.jpeg Graphic file (type jpg)
-<use hexagon.jpeg>
-Package luatex.def Info: hexagon.jpeg  used on input line 974.
-(luatex.def)             Requested size: 271.86842pt x 175.47797pt.
- [18]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 979.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 979.
-
-[19<./hexagon.jpeg>]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1056.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1056.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1056.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1056.
-
-[20] [21] (./preliminaries.tex [22] [23] [24]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 145.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-
-Class ltjsarticle Warning: deprecated old font command `\bf' used.
-(ltjsarticle)              You should note, that since 1994 LaTeX2e provides a
-(ltjsarticle)              new font selection scheme called NFSS2 with several
-(ltjsarticle)              new, combinable font commands. This ltjsarticle
-(ltjsarticle)              class has defined the old font commands like
-(ltjsarticle)              `\bf' only for compatibility on input line 163.
-
-[25] [26] [27] [28] [29]
-Overfull \hbox (24.11896pt too wide) detected at line 407
-[][]
- []
-
-[30] [31])(load cache: extra_lmmono10-regular.luc) [32] (./out/GenSym2.aux)
-
-LaTeX Warning: There were undefined references.
-
+(Font)              scaled to size 8.32242pt on input line 212.
+ [4](load cache: extra_lmmono10-regular.luc) [5] (./out/GenSym3.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `GenSym2.out' has not changed.
-(rerunfilecheck)             Checksum: 993174CD20F61F3F5496F4FA2E8B2939;4200.
+Package rerunfilecheck Info: File `GenSym3.out' has not changed.
+(rerunfilecheck)             Checksum: 7515E1C75D09C8D7CF14B2DD17775FC5;1758.
 )
 
 Here is how much of LuaTeX's memory you used:
- 48855 strings out of 477785
- 477813,1977958 words of node,token memory allocated
- 64209 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 31 glue, 510 kern, 1 glyph, 20179 attribute, 3313 glue_spec, 1093 attribute_list, 2 write, 523 user_defined nodes
-   avail lists: 1:38,2:149293,3:1003,4:379,5:302,6:91,7:8160,8:98,9:3365,10:35,11:614
- 67942 multiletter control sequences out of 65536+600000
- 150 fonts using 88384447 bytes
- 114i,16n,115p,1791b,1001s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmsans10-oblique.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman8-italic.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GenSym2.pdf (32 pages, 1089923 bytes).
+ 48313 strings out of 477785
+ 244629,1977958 words of node,token memory allocated
+ 24800 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 3 glue, 413 kern, 1 glyph, 9616 attribute, 411 glue_spec, 496 attribute_list, 2 write, 47 user_defined, 1 pdf_action nodes
+   avail lists: 1:46,2:78557,3:256,4:300,5:231,6:47,7:5972,8:34,9:1228,10:22,11:434
+ 67546 multiletter control sequences out of 65536+600000
+ 105 fonts using 66713223 bytes
+ 114i,10n,115p,1791b,847s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman8-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman6-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman5-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman7-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmsans10-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiGothic-Medium.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/haranoaji/HaranoAjiMincho-Regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman12-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/opentype/public/lm/lmroman17-regular.otf></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on GenSym3.pdf (5 pages, 188322 bytes).
 
-PDF statistics: 655 PDF objects out of 1000 (max. 8388607)
- 529 compressed objects within 6 object streams
- 139 named destinations out of 1000 (max. 131072)
- 168 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 233 PDF objects out of 1000 (max. 8388607)
+ 172 compressed objects within 2 object streams
+ 23 named destinations out of 1000 (max. 131072)
+ 88 words of extra memory for PDF output out of 10000 (max. 100000000)
 

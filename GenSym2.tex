@@ -107,18 +107,210 @@
 
 \begin{document}
 \maketitle
-
-\setcounter{tocdepth}{2}
-\tableofcontents
-\newpage
 \noindent
 \small
 メモ: 前回資料の収集がつかなくなったので書き上げるのを(半ば)諦めて, 今回の資料を改めて作成しました. 
 preliminariesはもともと書き差しだったので日本語で書いています. 
 \normalsize
+\setcounter{tocdepth}{2}
+\tableofcontents
+\newpage
 \section{Historical background of generalized symmetry}
+Here I want to introduce some backgrounds of the notion of generalized symmetries, though not complete at all. 
 \subsection{higher-form symmetry}
-\section{short comment on $0$-form symmetry}
+\subsubsection{In high-energy physics}
+The concept of higher-form symmetry may have originated from the string theory, especially in the theory of D-branes
+\cite{DGAKNSBW}. 
+In string theory, it has become commom to treat charged strings and charged branes rather than point particles. 
+Strings theorists have also considered string charge consirvation as the manifestation of symmetry. 
+Thus, the notion of $p$-form charged operators naturally arouse in order to deal with gauge theory in string literature. \\
+　For the first example, Kalb-Ramond field was introduced as an anti-symmetric 2-form gauge field coupling to charged string, 
+as the counterpart of Maxwell field in (point-like) field therory. 
+The endpoint of open string lives in the configuration called D-brane. 
+If the open string carries a charge, then the charged endpoint on D-brane forms a string-like trajectory, 
+which in turn carries string charge and cancels the charge of the endpoint to meet the charge conservation on the brane. 
+For some types of superstring theory (type IIA and IIB
+\footnote{The classification of superstring theory is based on 
+See the introductory explanation for \cite{BZ}. 
+For a more detailed description, I don't know (Maybe Polchinski's text is good?)}
+), $p$-dimensional D-brane (D$p$-brane) itself can have a charge, whose corresponding gauge field is anti-symmetric $p$-form. 
+If such charged branes are wrapped on a compact space (of extra dimension: 余剰次元), 
+they just look like a charged point to us in the remaining $3+1$-d world. \\
+　Though the original paper of Kalb and Ramond was published in 1974, and the study of 
+string-like or brane-like field configurations has been done in both hep-th and cond-mat literatures, 
+the formalization of such "higher-dimensional symmetry" has not been done until the pioneering work of 
+Gaiotto, Kapustin, Seiberg and Willet \cite{DGAKNSBW} 
+\footnote{もしかしたら嘘かもしれない, でも物理(hep-th)で一番有名な論文は多分これ. 数学側の発展については知らない. }. \\
+\\
+　In the framework of gauge theory, it is important to consider a loop called \textbf{Wilson loop}. 
+Wilson loop is a gauge-invariant operator defined on a closed 1-dim loop of spacetime manifold: 
+\begin{align}
+    W[\gamma]=\tr\slr{\mathcal{P}\exp\ler{i\oint_{\gamma}A_\mu dx^\mu}}, 
+    \label{WL}
+\end{align}
+where $\mathcal{P}$ is the path-ordering operator necessary for non-abelian gauge theory. 
+More generally, 
+the following value is conserved in the presence of matter field $\phi$:
+\begin{align}
+    \phi(x_i)^\dagger W[x_i, x_j]\phi(x_j)
+     = \phi(x_i)^\dagger\mathcal{P} \exp\ler{i\int_{x_i}^{x_j}A_{\mu}dx^\mu}\phi(x_j), 
+\end{align}
+and $W[x_i, x_j]$ is called \textbf{Wilson line} between the two points in spacetime coordinate neighbourhoods 
+\footnote{Note that, in general the two points $x_i$ and $x_j$ may live in different coordinate neighbourhood. 
+Still, the integral is well-defined until the appropriate "partition of unity"「1の分割」is given. }
+. 
+Physically, Wilson lines can be understood as the trajectory of infinitely heavy charged "test particle" inserted. 
+Moreover, Wilson loops can be considered as operators acting on the Hilbert space, 
+when it is stretched along the spatial dimension. 
+This spatial loop is a loop of electric flux, 
+and by using Stokes theorem, this is interpreted as measuring the magnetic flux through the loop. 
+Therefore, Wilson lines and Wilson loops are the manifestation of charged operators extended in spacetime (not pointlike). 
+\\
+　The set of all Wilson loops form a group, which must be a subgroup of the gauge group. 
+By knowing the set of Wilson loops for all possible loops, 
+one can reconstruct all gauge invariant information about the gauge connection. 
+The mathematical counterpart of Wilson loop is holonomy (of principal bundle), 
+a mapping of the fiber into itself upon horizontal lift along a closed loop. 
+\\
+%In lattice gauge theory, Wislon lines and Wilson loops play a crucial role in constructing gauge fields on lattice links. 
+　The thermal (imaginary-time) counterpart of the Wilson loop is called Polyakov loop: 
+\begin{align}
+    \Phi(\bm{x}) = \frac{1}{N}\mathrm{tr}\mathcal{P}\exp\slr{\int_{0}^{\beta}d\tau A_E(\bm{x}, \tau)}, 
+\end{align}
+where $A_{E}$ stands for the Eucledian temporal component of the gauge field. 
+%格子ゲージ理論とWilson loopの関係について
+%%
+%%
+%%
+\subsubsection{In condensed-matter physics}
+　On the condensed-matter side, the origin may seem more subtle. 
+%↓調べるべきもの
+The starting point is the well-known \textit{Landau paradigm}, 
+which states that states of matter are classified by the (group-like) symmetries which they support or break. 
+A nice paraphrasing of the Landau paradigm is made by McGreevy
+\cite{MG}: 
+\begin{itemize}
+    \item Phases of matter should be labelled by how they represent their symmetries, 
+    in particular whether they are spontaneously broken or not. 
+    \item A further belief that comes with this point of view is that
+    gapless degrees of freedom, or groundstate degeneracy, in a phase, should be swept out by a symmetry. 
+    That is, they should arise as Goldstone modexs for some spontaneously broken symmetry. 
+    \item The degrees of freedom at a critical point are the fluctuations of the order parameter. 
+\end{itemize}
+As has been noticed for several decades, there are some exceptions 
+that cannot be understood in the framework. Here are some examples. $\downarrow$
+\begin{itemize}
+    \item \textbf{Topologically ordered states}: 
+    \item 
+\end{itemize}
+Some of those exceptions can be understood by the nontrivial topology of the space(spacetime) manifolds 
+on which the models are defined (e.g. groundstate degeneracy of 2D toric code is attributed to the property $H_1(T^2)\simeq \mathbb{Z}_2\otimes \zet{Z}_2$). 
+To explain the remaining others, the concept of anomalies and generalized symmetries were utilized and it succeeded. \\
+　In 2010s, the concept of higher-form symmetry was introduced to the classification of topological phases. \\
+\\
+\color{red}
+NEED MORE information
+\color{black}
+\\
+\\
+　One important example of the realization of higher-form symmetry in cond-mat is that of 3D toric code, whose Hamiltonian is 
+\begin{align}
+    H=-\sum_j A_j - \sum_p B_p, 
+    \label{TCmodel}
+\end{align}
+where $j$ and $p$ is the index of site and plaquette respectively, 
+$A_{j}\equiv \prod_{l:\mathrm{link~ending~at~j}} Z_l$ is defined for every site $j$, 
+and $B_{p}\equiv \prod_{l:\mathrm{bdy~of~p}} X_l$ is for every plaquette $p$. 
+%The action of closed 1-dimesional loops on degenerated ground states does nothing, 
+%wwhich means that the (homotopy equivalence class of) closed 1-dimensional loops are generators of the "symmetry" of this ground state. 
+In 3D, the symmetry generated by $1$-dim loops is $1$-form symmetry, whose charged operators are string-like. 
+There are two distinct type of loops, each is created by $Z$s (Wilson loop) and $X$s ('t Hooft loop). 
+The symmetry is usually denoted as $1$-form $\zet^{e}_2\times \zet^{m}_{2}$. 
+Therefore, toric code provides us with the example of discrete higher-form symmetry. 
+%%%%
+\subsection{Non-invertible symmetry}
+The origin of non-invertible symmetry may be in the context of $1+1$-d conformal field theory, 
+where the general form of "fusion rule" of primary fields
+\footnote{To be precise, this is the form for the irreducible rep. called "degenerate representation", where 
+$r$ and $s$ below are restricted to non-zero integers. } 
+are given by
+\begin{align}
+    \mathcal{O}_{(r_1, s_1)}\times \mathcal{O}_{(r_2, s_2)}
+    =\sum_{m=1+|r_1-r_2|}^{r_1 + r_2 -1}\sum_{n=1+|s_1-s_2|}^{s_1 + s_2 -1}
+    [\mathcal{O}_{(m,n)}], 
+\label{fusionCFT}
+\end{align}
+where
+\begin{itemize}
+    \item the conformal weight of primary field $\mathcal{O}_{r,s}$ is given as
+    \begin{align}
+        h_{r,s}(c) = \frac{1}{24}(c-1) + \frac{1}{4}(r\alpha_+ + s\alpha_{-})^2, ~
+        \alpha_{\pm} := \frac{\sqrt{1-c}\pm\sqrt{25-c}}{\sqrt{24}}
+    \end{align}
+    for the theory with central charge $c$, 
+    \item $\slr{\mathcal{O}_{(r,s)}}$ represents the sum over the conformal family of primary field $\mathcal{O}_{(r,s)}$ 
+    (I omitted the coefficients for simplicity), 
+    \item and the indices $(m, n)$ run for 
+    $$m=1+|r_1-r_2|, 3+|r_1-r_2|, \cdots, r_1+r_2+1,$$
+    $$n=1+|s_1-s_2|, 3+|s_1-s_2|, \cdots, s_1 + s_2+1. $$
+\end{itemize}
+See the detail for \cite{Hikida}, for example. \\
+　Verlinde\cite{EV} focused on the case of "diagonalizable" rational CFT (RCFT)
+\footnote{A class of CFT, with finite number of primary fields appearing in the theory. }
+, where the fusion rule of primary operators is given in a simple form
+\begin{align}
+    \phi_i \times \phi_j = \sum_{k}N_{ij}^k \phi_k, 
+\end{align}
+with a condition imposed on the integers $N_{ij}^k$ which comes from the property of 4-point function
+\footnote{The condition \eqref{VLfuse} is obtained by considering conformal blocks for 4-point functions. }: 
+\begin{align}
+    \sum_{k}N_{ij}^{k}N_{klm} = \sum_{k}N_{il}^kN_{kjm}, N_{ijk} := N_{ka^0}N_{ij}^{a}. 
+    \label{VLfuse}
+\end{align}
+The matrices $(N_i)_j^k$ then forms a representation of the algebra of fusion rules 
+(this algebra can be regarded as one type of fusion category): 
+since the $N$ matrices are symmetric and commuting, each of their eigenvalues forms the one-dimensional representation of the fusion rule. 
+The corresponding codim-1 topological operators of this symmetry algebra (which turned out to be one type $0$-form non-invertible symmetry) were called 
+Verlinde lines. 
+Later, it is generalized to other CFTs (such as $c=1$ case) and non-diagonalizable RCFTs. 
+An important example is $c=\frac{1}{2}$ Ising CFT (also known as $(p,q)=(3,4)$ minimal model). 
+There are many examples in $c=1$ CFT, or free compact boson with certain compactification radius $R$ 
+(such as $SU(2)$ Wess-Zumino-Witten model for $R=\sqrt{2}$). \\
+　As is explained later, fusion category can be regarded as, in a sense, the generalization of the category of
+irreducible representations of a finite group $G$
+\footnote{ofが多い!!日本語だと, 「ある有限群$G$の既約表現のなす圏のある種の一般化」. }. 
+Therefore, it was natural that fusion category appeared when considering the algebraic structure of generalized symmetry. 
+For example, the algebraic counterpart of the fusion rule of primary operators in $1+1$-d Ising model is 
+a category call Tambara-Yamagami category $\mathrm{TY}_{+}$
+(see Shu-Heng Shao's lecture note for more information about Ising CFT: 
+\cite{SHS}). 
+\\
+\\
+　By utilizing the generalization of symmetry from the viewpoint of topological operators, 
+the concept of fusion category symmetries were also considered for topological quantum field theory (TQFT). 
+It turned out useful to treat the algebra generated by fusion (multiplication) of topological operators in TQFT in categorical framework: 
+theorists have succeeded in extracting a lot of information from the symmetry algebra by using mathematical tools developed in the study of category theory, 
+such as tensor functor, Frobenius structure, and various natural transformations embedded in certain classes of categories. \\
+　An especially important example of such categorical symmetry is anyon braiding in $1+1$-d TQFT. 
+An anyon is a quasi-particle in 2-dimesional phase of matter, 
+whose exchanging follow he so-called anyon statistics (braid group statistics). 
+%Anyonについてもっと書くかぁ
+\\
+\\
+　While higher-form symmetry is studied in $d\geq 3$ field theory, 
+the early work on non-invertible symmetry was mainly focused on $1+1$-d. 
+$p$-form symmetry is generated by codim-$p+1$ operator, and 
+in $1+1$-d codim-$1+1$ operators are just point-like. 
+Then, it does not make sense to consider higher-form symmetry in $1+1$-d. 
+On the other hand, 
+the fusion rule of operators were originally the concept of $1+1$-d conformal field theory. 
+Thus, many examples of non-invertible symmetry were found as the extension of the study on $1+1$-d RCFT. 
+%%
+%%
+%%
+\newpage
+\section{Short comment on last week's discussion}
+\subsection{Symmetry in quantum field theory: Ward-Takahashi identity}
 As we saw last week, the discussion of extending (ordinary) $0$-form symmetry to higher-form symmetry is 
 essentially based on the current conservation: $d\star j=0$. 
 The existence of such a closed form enables us to identify the generators of symmetry as the set of $d$-dimensional topological operators, 
@@ -126,16 +318,162 @@ which allows us to extend the notion of symmetry as "action of topological opera
  However, the current conservation in the context of classical field theory does not make sense in quantum field theory. 
  Rather, we should consider Ward-Takahashi identity
  \begin{align}
-    \lr{\delta_\epsilon(y)\mathcal{O}_R(x)}=i\lr{\epsilon(x)\partial_\mu j^\mu(y)\mathcal{O}_R(x)}
+    \partial_\mu\lr{j^\mu_a(x)\phi(x_1)\cdots \phi(x_n)}
+    =-i\sum_{j=1}^{n}\delta(x-x_j)\lr{\phi(x_1)\cdots [G_a \phi(x_j)]\cdots \phi(x_n)}~~
+    (\mathrm{for}~\phi(x)\to \phi'(x)+ \epsilon^a (x)G_a \phi(x))
+    \label{WTeq}
  \end{align}
 as the property of quantum field theory with a certain symmetry. 
-The WT identity is more natural when we consider QFT in a path-integral formulation. 
+The Ward-Takahashi identity is more natural when we consider QFT in a path-integral formulation, 
+where the fundamental quantities are written as correlation function of fields $\lr{\phi(x_1)\cdots \phi(x_n)}$. \\\\
+　Let's finish this part with the short explanation of WT identity. 
+The correlation function is 
+\begin{align}
+    \lr{\phi(x_1)\cdots \phi(x_n)}
+    =\frac{1}{Z}\pint{\phi}~ e^{-S[\phi]}\phi(x_1)\cdots \phi(x_n)
+\label{corr}
+\end{align}
+in path-integral formulation. 
+Here, we assume that the QFT has (internal) symmetry $G$, that is, 
+the action and path-integral measure are invariant under the grobal transformation $\phi\to \phi'$ caused by the group action on $\phi$
+\footnote{In other words, QFT with symmetry $G$ is a theory with no $G$-anomaly. 
+If the partition function $Z$ of a QFT is not invariant under the symmetry of action integral $S$, 
+then we call such a QFT as \textit{anomolous}. 
+The concept of anomaly is totally quantum. Indeed, 
+in classical field theory, we only consider the classical field configurations (i.e. 
+the field configurations which gives the stationary point of the action). \\
+%%%%%%%%
+%メモ: QHEのCS理論みたいに, unique ground stateからの寄与だけしか考えない時って, 本質的に古典場の理論と同じ? 
+%そもそものground stateが量子的に非自明なものだったら, それは量子論であるというやつか
+%TQFTってだいたいuniqueかつgappedだから, そもそもfield config.の数と場の「古典/量子」性は別問題か.  
+%%%%%%%%
+　There are several types of anomalies. For example, 
+if we are to consider gauge theory, 
+the anomaly which appears in the theory only after coupling dynamical field to the background gauge field 
+is called \textit{gauge anomaly}. 
+Another example is the so-called \textit{LSM-type anomaly}: 
+anomaly which can be interpreted as mixed anomaly with (lattice) translation symmetry. 
+The statement of LSM theorem prohibits the unique and gapped ground state for systems with lattice translation symmetry and some internal symmetries 
+(historically it was found for $SO(3)$, and was then proved for $U(1)$)
+\cite{HW}. 
+The "ingappability" or gaplessness corresponds to the emergence of non-dissipative current, which can be interpreted as the anomaly of conservation law. 
+%what is that?
+} 
+(here we denote the action of $g\in G$ on $\phi$ by $\mathcal{R}_g(\phi)$) . 
+For such a case, we can see that the correlation function is invariant: 
+\begin{align}
+    \lr{\mathcal{R}_g(\phi(x_1))\cdots \mathcal{R}_g(\phi(x_n))}
+    &=\frac{1}{Z}\pint{[\mathcal{R}_g(\phi)]}~ e^{-S[\mathcal{R}_g(\phi)]}\mathcal{R}_g(\phi(x_1))\cdots \mathcal{R}_g(\phi(x_n))\\
+    &=\frac{1}{Z}\pint{\phi}~ e^{-S[\phi]}\phi(x_1)\cdots \phi(x_n)~~
+    (\mathrm{integral~coordinate~transformation: \mathcal{R}_g(\phi)\to \phi})\\
+    =\lr{\phi(x_1)\cdots \phi(x_n)}. 
+\label{corrinv}
+\end{align}
+Now, if we consider an infinitesimal local transformation $\phi(x)\to \phi'(x) = \phi(x) + i\epsilon^a(x) G_a(x)\phi(x)$, 
+the action is not invariant under such a local transformation: 
+\begin{align}
+    \delta S = \int d^{d+1}x \partial_\mu \epsilon^a(x)j^\mu_a
+    =-\int d^{d+1}x (\partial_\mu j^\mu_a) \epsilon^a(x). 
+\end{align}
+Still, we assume the path-integral measure to be invariant (it is OK as long as our QFT is non-anomalous). 
+Then, the correlation function under this local transformation becomes
+\begin{align}
+    \lr{\phi(x_1)\cdots \phi(x_n)}
+    &\to \frac{1}{Z}\pint{\phi'}~ e^{-S[\phi']}(\phi'(x_1))\cdots (\phi'(x_n))\\
+    &=\frac{1}{Z}\pint{\phi}~ e^{-S[\phi]- \delta S}(\phi(x_1) + i\epsilon^a(x_1) G_a(x_1)\phi(x_1))\cdots (\phi(x_n) + i\epsilon^a(x_n) G_a(x_n)\phi(x_n))\\
+    &\simeq \frac{1}{Z}\pint{\phi}~ e^{-S[\phi]}(1-\delta S)(\phi(x_1) + i\epsilon^a(x_1) G_a(x_1)\phi(x_1))\cdots (\phi(x_n) + i\epsilon^a(x_n) G_a(x_n)\phi(x_n))\\
+    &(\mathrm{ignore~higher~order~of~}\epsilon)\\
+    &\simeq \frac{1}{Z}\pint{\phi}~ e^{-S[\phi]}\phi(x_1)\cdots \phi(x_n)
+    +\sum_{j=1}^{n}\frac{1}{Z}\pint{\phi}~ e^{-S[\phi]}(\phi(x_1))\cdots (i\epsilon^a(x_j) G_a(x_j)\phi(x_j))\cdots (\phi(x_n))\\
+    &+\frac{1}{Z}\pint{\phi}~ e^{-S[\phi]} \int d^{d+1}y (\partial_\mu j^\mu_a(y)) \epsilon^a(y) (\phi(x_1))\cdots (\phi(x_n))~~(\mathrm{ignore~higher~order})\\
+    &=\lr{\phi(x_1)\cdots \phi(x_n)}
+    +i\epsilon^a(x_j) \sum_{j=1}^{n}\lr{\phi(x_1)\cdots (G_a(x_j)\phi(x_j))\cdots \phi(x_n)}\\
+    &+\int d^{d+1}y \epsilon^a(y)\lr{(\partial_\mu j^\mu_a(y))  \phi(x_1)\cdots \phi(x_n)}\\
+\end{align}
+　We insist that the correlation function of QFT with symmetry should be invariant under the above transformation
+(since all the physical quantities are gauge invariant). 
+Then, we have
+\begin{align}
+    i\int d^{d+1}y \delta(x_j-y)\epsilon^a(x_j) \sum_{j=1}^{n}\lr{\phi(x_1)\cdots (G_a(x_j)\phi(x_j))\cdots \phi(x_n)}
+    +\int d^{d+1}y \epsilon^a(y)\lr{(\partial_\mu j^\mu_a(y))  \phi(x_1)\cdots \phi(x_n)}=0, 
+\end{align}
+which is exactly the same as \eqref{WTeq}. 
+\subsection{Higher-form symmetries are always abelian}
+In the case of ordinary symmetry, we often encounter systems with non-abelinan group symmetry, 
+such as the $SU(3)\times SU(2)\times U(1)$ of the Standard Model. 
+However, for symmetry higher than $1$, we will see there are only abelian symmetry algebras. \\
+　The reason is that, for symmetry operators (topological operators) in higher ($p\geq$ 1) forrm symmetry, 
+there are more than two remaining dimensions on which they can move freely. 
+This can be shown pictorically. 
+For example, $1$-form symmetry operators can expand or shrink freely to 
+"pass through" the other. See the figure below: 
+\begin{figure}[H]
+    \centering
+    \resizebox{0.6\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    \draw [ line width=1pt](3.75,4) to[short] (3.75,-12.5);
+    \draw [ color={rgb,255:red,255; green,38; blue,0} , line width=0.9pt ] (3.75,-1.5) ellipse (6.25cm and 1cm) node {\Huge $U_2$} ;
+    \draw [ color={rgb,255:red,4; green,51; blue,255} , line width=0.9pt ] (3.75,-6.75) ellipse (6.25cm and 1cm) node {\Huge $U_1$} ;
+    \draw [ line width=1pt](21.25,4) to[short] (21.25,-12.5);
+    \draw [ color={rgb,255:red,255; green,38; blue,0} , line width=0.9pt ] (21.25,-4) ellipse (6.25cm and 1cm) node {\Huge $U_2$} ;
+    \draw [ color={rgb,255:red,4; green,51; blue,255} , line width=0.9pt ] (21.25,-5.5) ellipse (2.25cm and 0.5cm) node {\Huge $U_1$} ;
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=1.1pt, ->, >=Stealth] (20,-5.5) -- (20,-4);
+    \node [font=\LARGE, color={rgb,255:red,4; green,51; blue,255}] at (20.5,-5.25) {};
+    \draw [ color={rgb,255:red,4; green,51; blue,255}, line width=1.1pt, ->, >=Stealth] (22.5,-5.5) -- (22.5,-4);
+    \draw [ line width=1pt](37.5,4.25) to[short] (37.5,-12.25);
+    \draw [ color={rgb,255:red,255; green,38; blue,0} , line width=0.9pt ] (37.5,-6.5) ellipse (6.25cm and 1cm) node {\Huge $U_2$} ;
+    \draw [ color={rgb,255:red,4; green,51; blue,255} , line width=0.9pt ] (37.5,-1.75) ellipse (2.25cm and 0.5cm) node {\Huge $U_1$} ;
+    \node [font=\LARGE, color={rgb,255:red,4; green,51; blue,255}] at (36.75,-5) {};
+    \end{circuitikz}
+    }%
+    \caption{1-form symmetry operator $U_1$ and $U_2$ acting on a line difect can "pass through" each other. }
+    \label{fig:my_label}
+    \end{figure}
+But, in the case of $0$-form symmetry, since there remains only one dimension for codim-$1$ operators, 
+the operators are in general non-commutative, except for the case where the "fusion rule" of operators itself is abelian (i.e. the group is abelian). 
+See: 
+\begin{figure}[H]
+    \centering
+    \resizebox{0.6\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\Large]
+    \draw [ line width=1.1pt ] (4.5,-4.75) rectangle (16.25,-16.25);
+    \node [font=\LARGE] at (10.25,-10.5) {$\bullet$};
+    \draw [ color={rgb,255:red,4; green,51; blue,255} , line width=1.1pt ] (10.25,-10.5) circle (4.5cm);
+    \draw [ color={rgb,255:red,255; green,38; blue,0} , line width=1.1pt ] (10.25,-10.5) circle (2.75cm);
+    \node [font=\LARGE, color={rgb,255:red,4; green,51; blue,255}] at (14,-14.25) {$U_1$};
+    \node [font=\LARGE, color={rgb,255:red,255; green,38; blue,0}] at (13,-12.5) {$U_2$};
+    \draw [ line width=1.1pt ] (22.75,-4.75) rectangle (34.5,-16.25);
+    \node [font=\LARGE] at (28.5,-10.5) {$\bullet$};
+    \draw [ color={rgb,255:red,255; green,38; blue,0} , line width=1.1pt ] (28.5,-10.5) circle (4.5cm);
+    \draw [ color={rgb,255:red,4; green,51; blue,255} , line width=1.1pt ] (28.5,-10.5) circle (2.75cm);
+    \node [font=\LARGE, color={rgb,255:red,255; green,38; blue,0}] at (32.25,-14.25) {$U_2$};
+    \node [font=\LARGE, color={rgb,255:red,4; green,51; blue,255}] at (31.25,-12.5) {$U_1$};
+    \node [font=\Huge] at (19.25,-10.5) {$\neq$};
+    \node [font=\Large] at (19.5,-11.75) {(not necessarily)};
+    \end{circuitikz}
+    }%
+    \caption{The ordinary topological operators can get closer to or leave away from each other, 
+    but they don't have enough remaining dimension to "evade" the others. }
+    \label{fig:my_label}
+    \end{figure}
+    The pictorialization of symmetry operators and charged defect operators is 
+    sometimes useful in that it can visualize the algebraic structure of symmetry in generalized form 
+    in a more understandable manner. 
+\newpage
 \section{Examples of higher-form symmetry}
+The generalization process of ordinary symmetry to higher-form one is very abstract. 
+There are a lot of important examples in higher-form symmetry, especially as the generalization of gauge theory like 
+$U(1)$ or $SU(2)$. 
+Here, we will focus on the simplest $U(1)$ case and see how $1$-form symmetry interplays in physics. 
 \subsection{$d=3+1$ $U(1)$ Maxwell gauge theory, with no matter field}
+\subsubsection{Electric and Magnetic $1$-form symmetry}
 As an example of higher-form symmetry appraring in physics, let's consider $U(1)$ pure Maxwell theory in $(3+1)$d spacetime. 
 The action is given as 
 \begin{align}
     S = -\frac{1}{2g^2} \int F\wedge \star F = -\frac{1}{4g^2}\int F_{\mu\nu}F^{\mu\nu}, 
+    \label{U1pure}
 \end{align}
 where $F=dA$ is the 2-form field strength of gauge field $A$
 \footnote{
@@ -168,8 +506,8 @@ where we used $\omega\wedge \star \eta = \eta\wedge \star \omega$ and
 $d(\omega\wedge \eta) = (d\omega)\wedge \eta + (-1)^{k_\omega} \wedge \eta$ for 
 any $k_\omega$-form $\omega$ and $k_\eta$-form $\eta$. 
 Therefore, the equation of motion for $A$ is $d\star F=0$. 
-This means that we have a conserved $2$-form current $F$, implying that this pure $U(1)$ gauge theory has a $U(1)$ 1-form symmetry (a.k.a \textit{electric $1$-form symmetry}). 
-Once we find a conserved current, we can write down the corresponding symmetry operator (which is topological) as an integral over closed $2$-dim surface 
+This means that we have a conserved $2$-form current $F$, implying that this pure $U(1)$ gauge theory has a $U(1)$ 1-form symmetry (a.k.a \textit{electric $1$-form symmetry}). \\
+　Once we find a conserved current, we can write down the corresponding symmetry operator (which is topological) as an integral over closed $2$-dim surface 
 ($\lambda$ is a parameter specifying a certain $U(1)$ element)
 \begin{align}
     U^{e}_{\lambda}(\Sigma_2) = \exp\blr{i\lambda\oint_{\Sigma}\frac{\star F}{g}}=: \exp\blr{i\lambda\oint_{\Sigma}J^e_2} ~~
@@ -184,7 +522,7 @@ The integral of the Pfaffian of curvature $2$-form $\Omega$ over closed $2n$-dim
     \int_{\Sigma} \mathrm{Pf}(\Omega) = (2\pi)^n \chi(\Sigma)~. 
 \end{align}}
  tells us that the obtained symmetry is $U(1)$. \\
-  The corresponding charged operator $W(q, \gamma)$ is extended along $1$-dim loop in spacetime, called \textbf{Wislon line}: 
+　The corresponding charged operator $W(q, \gamma)$ is extended along $1$-dim loop in spacetime, called \textbf{Wislon line}: 
   \begin{align}
     W(q, \gamma)=e^{iq\int_{\gamma}A}~(q\in \zet). 
   \end{align}
@@ -200,7 +538,20 @@ The integral of the Pfaffian of curvature $2$-form $\Omega$ over closed $2n$-dim
   their tangent spaces $T_p U_q$ and $T_p V_r$ together generate a $(q+r)$-dim subspace of $T_pM$, i.e., 
   $T_p U_q \otimes T_p V_r \subseteq T_p M$ for $\forall p\in U_{q}\cap V_r$, then 
   $U_q$ and $V_r$ are said to "intersect transversally". \\
-   Then, we define the linking number. }
+　The linking number is defined by two oriented submanifolds $(U_q, V_r)$ in $d+1$-dim spacetime, 
+   satisfying $q+r=d$. We further assume that, $U_q$ and $V_r$ themself do not have the intersecting point, 
+   and each submanifold can be thought to form the boundary of a one-dim higher open manifold. 
+   Then, by denoting $\partial W_{r+1}=V_r$, $U_q$ and $W_{r+1}$ can intersect in a finite number of points ${p_i}$ 
+   (the set $\{p_i\}$ must be finite as long as we consider compact spacetime $M$). 
+   Since $q+r+1=d+1$, the two tangent spaces $T_{p_i}U_q$ and $T_{p_i}W_{r+1}$ at each $p_i$ spans $T_{p_i}M$. 
+   Thus, the orientations on $U_q$ and $W_{r+1}$ are used to define a new orientation to the neighborfood of $p\in M$. 
+   If such an induced orientation is consistent with the original orientation of $M$, 
+   then we define $\mathrm{sign}(p_i)=+1$, and if not, $\mathrm{sign}(p_i)=-1$. 
+   The \textit{linking number} is defined by summing up the signs over all the intersecting point of $U_q$ and $W_{r+1}$: 
+   \begin{align}
+    \mathrm{Link}(U_q, V_{r}) = \delta_{r, d-q}\sum_{i}\mathrm{sign}(p_i). 
+   \end{align}
+   }
   . 
   \begin{figure}[!ht]
     \centering
@@ -284,7 +635,10 @@ Thus, by considering the "topological deformation" of $\Sigma_2$:
     \label{ActionToWlison}
 \end{figure}
 \noindent
-Note that this deformation should be interpreted in path-integral formulation. Thus, we have
+Note that this deformation should be interpreted in path-integral formulation
+\footnote{This means that we consider Ward-Takahashi identity as the current conservation, rather than Noether's theorem. 
+In other words, we consider QFT rather than classical field theory. }
+. Thus, we have 
 \begin{align}
     \lr{\exp\blr{i\frac{\lambda}{g^2}\oint_{\Sigma_2}\star F}W(q, \gamma)}
     =\lr{e^{iq\lambda\mathrm{Link}(\Sigma_2, \gamma)}
@@ -296,7 +650,7 @@ which is the same as \eqref{ActionWilson}. \\
  $A\mapsto A + a$, where $\oint_{\gamma} a =\lambda \mathrm{Link}(\Sigma_2, \gamma)$. 
  In fact, the associate current $\star J^e$ is the conjugate momentum of $A$, generating the shift of $A$. \\
  \\
- We can also consider the "dual" $1$-form symmetry: due to the Bianchi identity, we have $dF=0$ (that is, the pure Maxwell field is flat). 
+　 We can also consider the "dual" $1$-form symmetry: due to the Bianchi identity, we have $dF=0$ (that is, the pure Maxwell field is flat). 
  By regarding this identity as the conservation of $2$-form current $J^{m}_2 :=\frac{1}{2\pi}\star F$, we can write down the correponding symmetry operator as
  \begin{align}
     U^{m}_\lambda(\Sigma_2) = \exp\blr{i\lambda\oint_{\Sigma_2}\star J^m_2}
@@ -315,22 +669,119 @@ which is the same as \eqref{ActionWilson}. \\
     =e^{im\lambda\mathrm{Link}(\Sigma_2, \gamma)}\lr{T_1(m, \gamma)U^{m}_\lambda (\Sigma'_2)}. 
  \label{ActionTotHooft}
  \end{align}
-\\ \\
-It is insightful to consider coupling "background $1$-form $U(1)$ gauge field" to our conserved $2$-form currents, as we have done in the case of ordinary $U(1)$ gauge theory. 
-This is done by modifying the action integral
-\footnote{詮: 系の力学を記述する「作用積分」と, 演算子の場に対する「作用」を区別するために, 以降は前者を"action integral"と呼ぶことにします. }
+ \subsubsection{Gauging $1$-form $U(1)$ symmetry}
+ It is insightful to consider coupling "background gauge field" to our conserved $2$-form currents, as we have done in the case of ordinary $U(1)$ gauge theory. 
+This is done by adding to the action integral
+\footnote{詮: 系の力学を記述する「作用積分」と, 演算子の場に対する「作用」を区別するために, 以降は(文脈から明らかな場合を除いて)前者を"action integral"と呼ぶことにします. }
+ the term $\int B^e_2\wedge \star J^e_2$ and $\int B^m_2\wedge \star J^m_2$ respectively, 
+where $B^e_2$ and $B^m_2$ are the $2$-form background gauge field of $1$-form electric/magnetic symmetry.  
+The modified action integral would be of the form 
 \begin{align}
-    S=\frac{1}{2g^2}
+    S_1=\frac{1}{2g^2}\int (F-B^e_2)\wedge \star (F-B^e_2) 
+    +\frac{i}{2\pi}\int B^m_2 \wedge F
+    =\frac{1}{2g^2}\int F\wedge \star F -\frac{1}{g^2} B^2 \wedge F
+    +\frac{1}{2g^2}\int B^e_2\wedge B^e_2 + 
+    \frac{i}{2\pi}\int B^m_2\wedge F. 
 \label{Gauging1formSym}
 \end{align}
-\subsection{}
-\section{Non-invertible symmetry}
+The new term $\int B^e_2\wedge B^e_2$ is to ensure the invariance of the kinetic term $\int F\wedge \star F$
+under the gauge transformation $A\to A+ \lambda^e_1,~ B^e_{2}\to B^e_2 + d\lambda^e_1$ ($\lambda^e_1$ : some (non-closed) $1$-form). 
+Note that, this term does not affect the dynamics of the theory unless we treat $B^e_2$ and $B^m_2$ just as "background" fields 
+(so, the choice of such an additional term is not unique: we will point out that again below). 
+This action is invariant under magnetic $1$-form transformation $\tilde{A} \to \tilde{A}+\lambda^{m}_1, ~B^m_2\to B^m_2 + d\lambda^m_1$, 
+but not invariant under electric $1$-form transformation $A\to A+ \lambda^e_1,~ B^e_{2}\to B^e_2 + d\lambda^e_1$: 
+\begin{align}
+    \delta S_1 = \frac{i}{2\pi}\int B^m_2\wedge d\lambda^e_1. 
+    \label{eleAno}
+\end{align}
+Thus, the magnetic $1$-form symmetry can be gauged consistently under this $S_1$ while the electric $1$-form cannot. \\
+　Another choice of modification might be
+\begin{align}
+    S_2 = -\frac{1}{2g^2}\int (F-B^e_2)\wedge \star (F-B^e_2)
+    +\frac{i}{2\pi}\int B^m_2\wedge(F-B^e_2), 
+\end{align}
+The action is in turn invariant under electrum $1$-form symmetry, 
+but not under the magnetic $1$-form transforastion $
+A^m\to A^m + \lambda^m_1, ~B^m_2\to B^m_2 + d\lambda^m_1$ : 
+\begin{align}
+    \delta S_2 = \frac{i}{2\pi}\int -d\lambda^m_1\wedge B^e_2. 
+    \label{magAno}
+\end{align}
+Combining the two observation, we can see that 
+we cannot make both electric and magnetic $U(1)$ $1$-form symmetry simultaneous by any choice of additionallocal term. 
+Such a situation is described that the action of $3+1$-d Maxwell theory has a mixed 't Hooft anomaly of $U(1)^{(1)}_e$, $U(1)^{(1)}_m$. \\
+　Let us see the mixed anomaly \eqref{magAno} from the inflow pitcure briefly. 
+We consider the following "anomaly inflow action" in five dimension: 
+\begin{align}
+    S_{\mathrm{inflow}} = -\frac{i}{2\pi}\int_{N_{5}} B^{m}_2\wedge dB^e_2, 
+\end{align}
+where $\partial N_5 = M_4$ is our spacetime manifold. By the background gauge transformation $B^m_2 \to B^m_2 + d \lambda^m_1$, we have
+\begin{align}
+    \delta S_{\mathrm{inflow}} &= -\frac{i}{2\pi}\int_{N_5} d\lambda^m_1 \wedge dB^e_2 \\
+    &=-\frac{i}{2\pi}\int_{N_5}\blr{d(d\lambda^m_1\wedge B^e_2)-d^2\lambda^m_1 \wedge dB^e_2}\\
+    &=-\frac{i}{2\pi}\int_{\partial N_5}d\lambda^m_1\wedge B^e_2 + 0~~
+    (\because \mathrm{Stokes' thm})\\
+    &=-\frac{i}{2\pi}\int_{M_4}d\lambda^m_1\wedge B^e_2, 
+\end{align}
+which is just the same as $\delta S_2$ in \eqref{magAno}. 
+Therefore, we can add $-S_{\mathrm{inflow}}$ in our action integral to cancel the mixed 't Hooft anomaly 
+in the boundary $M_4$. 
+%%%%
+%%%%
+\subsubsection{Electric-magnetic duality}
+This part is mainly based on \cite{TD}. Please see his video for detail. \\
+　Let's now consider the following action integral, whose dynamical gauge field is $\tilde{A}$:
+\begin{align}
+    S[\tilde{A}, F]
+    =-\frac{1}{2g^2}\int F\wedge \star F + \frac{i}{2\pi}\int d\tilde{A}\wedge F. 
+\label{dualityAction}
+\end{align}
+The action is the form of coupling magnetic $2$-form current $\star J^{m}_2 = \frac{1}{2\pi}F$ to dynamical gauge field $\tilde{A}$. 
+"Integraling out" the $\tilde{A}$ field obviously reproduces the action \eqref{U1pure}, 
+which means that 
+gauging magnetic $1$-form symmetry $U^{(1)}_m$ yields an electric $1$-form symmetry $U^{(1)}_e$. \\
+　Another way to study the relation of $U^{(1)}_e$ and $U^{(1)}_m$ is to consider the equation of motion for $\tilde{A}$ in the action \eqref{dualityAction}, 
+which is
+\begin{align}
+    \frac{i}{g^2}\star F = -\frac{1}{2\pi}d\tilde{A} \ler{=: \frac{1}{2\pi}\tilde{F}}. 
+\end{align}
+By using the property of Hodge star operator for arbitrary $p$-form $\omega$, 
+$\star\star \omega = (-1)^{p(d+1-p)}\omega$ (for our case $p=2$), we can also have
+\begin{align}
+    \star \tilde{F}= -\frac{2\pi i}{g^2}F. 
+\end{align}
+Then we can rewrite the action \eqref{dualityAction} using $\tilde{A}$ only: 
+\begin{align}
+    \tilde{S}[\tilde{A}]
+    &=-\frac{1}{2g^2}\int \ler{\frac{g^2}{2\pi i}\star \tilde{F}}\wedge \ler{\frac{g^2}{2\pi i}\tilde{F}} + \frac{i}{2\pi}\int \tilde{F}\wedge \ler{\frac{g^2}{2\pi i}\star \tilde{F}}\\
+    &=-\frac{g^2}{8\pi^2}\int \tilde{F}\wedge \star \tilde{F}. 
+\end{align}
+Then, this $\tilde{S}[\tilde{A}]$ becomes the same form of the original action under the EoM of dynamic field $\tilde{A}$. 
+But the coupling constant is different: for the theory of $\tilde{S}$, 
+\begin{align}
+    \frac{1}{2\tilde{g}^2} = \frac{g^2}{8\pi^2} ~\to~\tilde{g}^2 = 4\pi^2 / g^2.  
+\end{align}
+This means that, when the original coupling constant of the original dynamical field $A$ becomes smaller, 
+the "dual" coupling constant of the dual field $\tilde{A}$ becomes larger. \\
+　This duality picture gives us an important viewpoint of the symmetry: 
+symmetry operators act on defect operators, which generates the symmetry of the system. 
+In other words, the algebra of symmetry operators is the representation of the symmetry, 
+whose representation space is spanned by defect operators. 
+Generally, this algebraic structure is not necessarily group-like 
+(called "higher group"), 
+so we will go on a journey to the representation theory of category (圏) 
+in order to study the physics under generalized symmetry. 
+%
+%
+%
+%
+%
+\newpage
+\section{A brief intro to Non-invertible symmetry}
 %ここからは, 先に述べた「2つの一般化の方向」の, もう一つに視点を当ててみる. 
 %今までの議論において, 対称性演算子には常にその逆元が存在していた. 
 %いま, そのような制約を緩めた時にどのような「対称性」が現れるのかを考える. 
 %これはもはや通常のgroup-likeな対称性ではなく, 「非可逆対称性」あるいは"non-invertible symmetry"と呼ばれるものになる. \\
-　
-
 %非可逆的対称性の持つ代数構造は群をなさないが, それはフュージョン圏と呼ばれる圏の構造を有している. 
 %もう少しだけ言うと,非可逆対称性を持つ理論において, そこに現れるsymmetry defect operatorたちの間には"fusion rule"という関係があり, 
 %これはdefect同士を"fuse"して別のdefectを生み出すという点で, defectとdefectの間の射であるとみなせる. 
@@ -341,40 +792,307 @@ Let us now turn our attention to the other of the “two generalization directio
 In the previous discussions, symmetry operators have always had their inverses. 
 Now, let us consider what kind of “symmetry” will appear when such restrictions are relaxed. 
 This is no longer the usual group-like symmetry, but is what we call "non-invertible symmetry" or "non-invertible symmetry". \\
-\subsubsection{Algebraic Structure of Non-invertible Symmetry: Fusion Category}
-The algebraic structure of non-invertible symmetry is not a group, but it in general has a categorical structure called a fusion category. 
-To say a little more, in a theory with irreversible symmetries, there is a "fusion rule" relation between symmetry defect operators that appear in the theory. 
-This is regarded as a projection between defect and defect, in that defects "fuse" with each other to create another defect. defects in the sense that defects “fuse” with each other to produce another defect. 
-Then, we can consider a category with (simple) defects as "objects" and the fusion rule between defects as "morphisms". 
-This sphere has a "richer structure" algebraically than the general sphere 
-in that it has a tensor product and a natural transformation called "F-symbol". (=fusion sphere) in that this sphere has tensor products and “F-symbol” natural transformations. 
 \\
- The fusion category consists of the following structures: 
+　We start from the very abstract point: the algebra of such a new symmetry. 
+\subsection{Algebraic structure of Non-invertible symmetry: fusion category}
+\noindent
+\tiny
+(This part is never mathematically rigorous. I guess Yao is a lot more familiar with these topics. 
+I mainly referred to \cite{KI} when writing this part)\\
+\normalsize
+　The algebraic structure of non-invertible symmetry is not a group, but it in general has a categorical structure called "fusion category". 
+To say more, in a theory with non-invertible symmetries, there is still a "fusion rule" relation among symmetry defect operators in the theory. 
+This is regarded as morphisms among different defects, in the sense that defects "fuse" with each other to create another defect 
+(note that, for systems with group-like symmetry, the fusion rule becomes just the group multiplication rule). 
+Then, we can consider a category with (simple) defects as "objects" and the fusion rule between defects as "morphisms". 
+Such type of categories are what we call \textit{fusion category}. \\
+% This category has a "richer structure" algebraically than the general category, 
+%in that it has a tensor product and a natural transformation called "F-symbol". (=fusion sphere) in that this sphere has tensor products and “F-symbol” natural transformations. 
+\\
+　A (unitary) fusion category $\mathcal{C}$ is a category which consists of the following information:
 \begin{itemize}
-    \item tensor functor
-    \item natural transformation 
+    \item Objects $x, y, \cdots \in \mathcal{C}$, including a unit object $1\in \mathcal{C}$. 
+    \item Morphisms $\mathrm{Hom}(x,y)$: a finite dimensional $\cpl$-vector space, 
+    equipped with an adjoint $\dagger: f\in \mathrm{Hom}(x,y)\mapsto f^\dagger \mathrm{Hom}(y,x)$. 
+    \item Bifuncters $\otimes: \mathcal{C}\times \mathcal{C}\to \mathcal{C}$ (tensor product), $\oplus: \mathcal{C}\times \mathcal{C}\to \mathcal{C}$ (direct sum).  
+    \item Natural isomorphisms $\alpha_{x,y,z}: (x\otimes y)\otimes z\to x\otimes (y\otimes z)$ (associator), $l_x: 1\otimes x\to x$ (left unit), $r_x: x\otimes 1\to x$ (right unit). 
+    These satisfy certain conditions (shown later). These isomorphisms are also unitary with respect to the adjoint $\dagger$. 
 \end{itemize}
- But why we should care about such a categorical structure?
-  Note that the algebraic structure of non-invertible symmetry cannot be totally arbitrary: 
-  there should be some rules or orders. 
-  More precisely, we need some "consistency condition" for valid physical systems. 
-\subsubsection{Example from lattice}
+　An object $x\in \mathcal{C}$ is called simple when it cannot be decomposed into a direct sum of objects. 
+The important property of fusion category is that, 
+there is only finite number of simple objects (up to isomorphism), and 
+every object is isomorphic to a direct sum of finitely many simple objects: 
+$x\simeq \bigoplus_{i}N_i a_i$ where $\{a_i\}$ is a set of simple objects and $N_i$ is a non-negative integer. 
+In application to physics, we can exploit this property to discuss the "fusion rule" of topological operators. \\
+　Another important property is the existence of dual object $x^*$ for every $x\in \mathcal{C}$. 
+The "duality" is in the sense that there are a pair of morphisms 
+$\mathrm{ev}^{L}_x: x^*\otimes x \to 1$ (evaluation) and $\mathrm{coev}^{L}_x: 1\to x\otimes x^*$ (coevaluation) which satisfies the following relations: 
+\begin{align}
+    &r_x\circ (id_x\otimes \mathrm{ev}^L_x)\circ \alpha_{x, x^*, x}\circ (\mathrm{coev}^L_x\otimes id_x)\circ l^{-1}_x = id_x, \\
+    &l_{x^*}\circ(\mathrm{ev}^L_x\otimes id_{x^{*}}) \circ \alpha^{-1}_{x^*, x, x^*}\circ (id_x^*\otimes \mathrm{coev}^{L}_x)\circ r^{-1}_{x^*}=id_{x^*}. 
+    \label{eval}
+\end{align}
+These morphisms are not unitary in general
+\footnote{Are there any condition when those morphisms become unitary? }
+The adjoints $\mathrm{ev}^R_x = (\mathrm{ev}^{L}_x)^\dagger$ and $\mathrm{coev}^{R}_x = (\mathrm{coev}^{L}_x)^\dagger$ 
+　The associavity and left/right units satisfy the following identity, written in a language of commutative diagram: 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pentagon.png}
+    \caption{The "pentagon identity" of the associator $\alpha_{x,y,z}$, for $x,y,z\in \mathrm{Obj}(\mathcal{C})$. 
+    Images from \cite{KI}. }
+    \label{pentagon}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{lrunits.png}
+    \caption{The identity of left and right units. 
+    Images from \cite{KI}. }
+    \label{lrunits}
+\end{figure}
+%\begin{itemize}
+ %   \item tensor functor
+  %  \item natural transformation 
+%\end{itemize}
+  Informally speaking, the algebraic structure of non-invertible symmetry cannot be totally arbitrary: 
+  there should be some rules. 
+  More precisely, we need some "consistency condition" for creating physically valid models, 
+  although this is not as strict as group-like. 
+  Such a rule is the pentagon identity of the associavity transformation 
+  $\alpha_{x,y,z}: (x\otimes y)\times z\mapsto x\times (y\times z)$ mentioned above \ref{pentagon}. \\
+  　A practically important point is that, the pentagon identity enables us to write down the general form of the fusion rule, given by the coefficients called "F-symbol": 
+  \begin{figure}[H]
+    \centering
+    \resizebox{0.6\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    \draw [line width=0.9pt, short] (5,7.75) -- (5,4);
+    \draw [line width=0.9pt, short] (5,7.75) -- (2.5,11.5);
+    \draw [line width=0.9pt, short] (5,7.75) -- (7.5,11.5);
+    \draw [line width=0.9pt, short] (3.75,9.75) -- (5,11.5);
+    \draw [line width=0.9pt, short] (15,7.75) -- (15,4);
+    \draw [line width=0.9pt, short] (15,7.75) -- (12.5,11.5);
+    \draw [line width=0.9pt, short] (15,7.75) -- (17.5,11.5);
+    \draw [line width=0.9pt, short] (16.25,9.75) -- (15,11.5);
+    \node [font=\LARGE] at (8.75,7.75) {$=$};
+    \node [font=\LARGE] at (9.5,7.75) {$\sum_{b}$};
+    \node [font=\LARGE] at (11,7.75) {$[F^{4}_{123}]_{ab}$};
+    \node [font=\LARGE] at (5,3.5) {$4$};
+    \node [font=\LARGE] at (2.5,12) {$1$};
+    \node [font=\LARGE] at (5.25,12) {$2$};
+    \node [font=\LARGE] at (7.5,12) {$3$};
+    \node [font=\LARGE] at (17.5,12) {$3$};
+    \node [font=\LARGE] at (15,12) {$2$};
+    \node [font=\LARGE] at (12.5,12) {$1$};
+    \node [font=\LARGE] at (15,3.5) {$4$};
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, short] (5,7.75) -- (3.75,9.75);
+    \node [font=\LARGE] at (5,10) {};
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, short] (15,7.75) -- (16.25,9.75);
+    \draw [->, >=Stealth] (5,5.5) -- (5,5.75);
+    \draw [->, >=Stealth] (15,5.5) -- (15,5.75);
+    \draw [->, >=Stealth] (3.25,10.5) -- (3,10.75);
+    \draw [->, >=Stealth] (4.25,10.5) -- (4.5,10.75);
+    \draw [->, >=Stealth] (4.5,8.5) -- (4.25,9);
+    \draw [->, >=Stealth] (14,9.25) -- (13.75,9.75);
+    \draw [->, >=Stealth] (15.75,10.5) -- (15.5,10.75);
+    \draw [->, >=Stealth] (16.75,10.5) -- (17,10.75);
+    \draw [->, >=Stealth] (15.5,8.5) -- (15.75,9);
+    \draw [->, >=Stealth] (6,9.25) -- (6.25,9.5);
+    \node [font=\LARGE] at (3.75,8.75) {$a$};
+    \node [font=\LARGE] at (16.25,8.75) {$b$};
+    \end{circuitikz}
+    }%
+    \label{F-symbol}
+    \end{figure}
+  Note that the matrix $F_{4}^{123}$ of coefficients is just the identity for the case of group-like symmetry. 
+  \\\\
+  　In a sense, fusion category can be regardeda as a generalization of the category of
+  the irreducible representations (irreps.) of a certain finite group $G$ 
+  into that of a more general algebraic structure
+  \footnote{This algebraic structure is the so-called \textit{Hopf algebra}, 
+  which can be undeestood as an abstraction of group property. 
+  Hopf algebra is }
+  . 
+  In other words, the category of irreps. of finite group $\mathrm{Rep}(G)$ is one simple example of fusion category. 
+  This consists of 
+  \begin{itemize}
+    \item Objects: (unitary equivalence class of) irreps. of a finite group $G$, including the trivial rep. as the unit object. 
+    \item Morphisms: $\mathrm{Hom}(\pi, \sigma) = \blr{T|T\pi(g) = \sigma(g)T, ~\forall g\in G}$ 
+    (the set of linear maps from one representation space to another: $V_\pi\to V_\sigma$, called "intertwiner"). 
+    \item Bifunctors: tensor products (here it is just associative: $\pi\times \sigma \simeq \sigma\times \pi$), direct sum. 
+  \end{itemize}
+  The fusion rule here is nothing but the direct sum decomposition (block diagonalization) of the tensor product of two irreps. 
+  (up to constant coefficient): 
+  \begin{align}
+    \pi \otimes \sigma \simeq \bigoplus_i n_i \rho_i, 
+  \end{align}
+  where $n_i$s are non-negative integers. 
+  We may have encountered this kind of fusion in the case of $SU(2)$: 
+  in that case, we have succeeded in writing down the exact coefficients as 
+  Clebsh-Gordan coefficients. \\
+　We may notice that this does not form a group (there is no "inverse" of representation). 
+Still, we have a "dual" $\pi^*$ for each irrep. $\pi$, whose duality is characterized by the fact that
+ the decomposition of the tensor of a given irrep. $\pi$ and its dual includes the trivial rep. : 
+ \begin{align}
+    \pi\otimes \pi^* \sim 1\oplus \cdots. 
+ \end{align}
+ The right side does not need to be equal to $1$. 
+  \\
+  　There is another thing: for each object in $\mathrm{Rep}(G)$, we can assign a natural number called "dimension", satisfying
+  \begin{align}
+    \dim{(\pi \otimes \sigma)} &= (\dim(\pi))(\dim(\sigma)), \\
+    \dim(\bigoplus_i \pi_i) &= \sum_i \dim{\pi_i}. \\
+  \label{dim}
+  \end{align}
+  You may notice that this $\dim$ is just the rank of representation matrices. 
+  In fact, the concept of $\dim$ can also be extended to a general fusion category symmetry. 
+  However, in most general case, this $\dim$ is not necessarily a natural number: still it can be non-negative real number. 
+  In physics, such a number is called "quantum dimension" of topological operators. 
+  \\
+  \\
+  　In short, there are two messages to take home: 
+  \begin{itemize}
+    \item The algebraic structure of non-invertible symmetry is in general given by a category, which is "weaker" than group. 
+    \item However, it is not an arbitrary category. Rather, it must be a fusion category:
+     it has a finite number of objects on which we can perform the "fusion rule", tensor product with associativity, and some other special properties. 
+  \end{itemize}
+Therefore, when we encounter physical systems which supports non-invertible symmetry, 
+we can find the hidden categorical structure, and study the physical property of systems by exploiting the algebraic property of fusion category. 
+There are also "inverse" attempts: to a given fusion category, we may succeed in providing the proper theory (TQFT) which encodes the categorical structure. 
+Many works have been done on such attempts, especially for lattice field theory. 
+\subsubsection{Relation to anyon statistics in $1+1$d: \textit{braiding}}
+\color{red}
+Undone
+\color{black}
+
+From the perspective of categorical symmetry, 
+the symmetry structure of anyon is given as a \textit{braiding} on a monoidal category, 
+which is a natural isomorphism $c_{X,Y}: X\otimes Y \to Y\otimes X$
+ that satisfies the "hexagon identity" (hexagonal diagram): 
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{hexagon.jpeg}
+    \caption{The "hexagon identity" of braiding $c_{X,Y}: X\otimes Y \to Y\otimes X$. 
+    Images from \cite{PESGDNVO}. }
+    \label{lrunits}
+\end{figure}
+\subsection{Example from lattice: $1+1$-d Ising CFT}
 The (probably) most typical example of field theory with non-invertible symmetry is 
 of the critical transverse-field Ising model (TFIM). Its Hamiltonian is given by
 \begin{align}
     H = -\sum_{j=1}^{L}(Z_{j-1}Z_j + X_j), 
 \end{align}
-with periodic boundary condition $X_j = X_{j+L}, Z_j=Z_{j+L}$. 
-This model has $\zet_2$ symmetry
-\subsubsection{Example from continuous}
+with periodic boundary condition $X_j = X_{j+L}, Z_j=Z_{j+L}$. \\
+　This model has $\zet_2$ symmetry $X_i\mapsto -X_i, ~Z_i\mapsto -Z_i$. 
+The symmetry operator of this $\zet_2$ is the identity $1$ and
+\begin{align}
+    \eta = \prod_{j=1}^{L}X_j.  
+\end{align}
+We can easily check that $\eta^\dagger=\eta$ and $\eta^2=1$. 
+This means that the set of unitary operators $\{1, \eta\}$ generates the $\zet_2$ action on the Hilbert space $\mathcal{H}$. \\
+　In addition, this is also invariant under the following "Kramers-Wannier transformation": 
+\begin{align}
+\label{KW}
+X_j\mapsto Z_{j-1}Z_j, ~~ Z_{j-1}Z_j \mapsto X_{j-1}. 
+\end{align}
+We will see that this is indeed non-invertible. First, we can check that
+\begin{align}
+    (X_j, Z_{j-1}Z_j)\mapsto (Z_{j-1}Z_j, X_{j-1})\mapsto (X_{j-1}, Z_{j-2}Z_{j-1}). 
+\end{align}
+This means that performing the KW transformation twice is equivalent to the shift (lattice translation) by one site. 
+Sometimes, KW transformation on lattice is called "non-invertible lattice translation" (see, for example, \cite{NSSSSHS}). 
+Second, it can be shown that this KW cannot be represented by any unitary operator. 
+In fact, if there were such a unitary operator $U_{KW}$, 
+we would act it on $\eta$ to obtain
+\begin{align}
+    U_{KW}\eta U^{-1}_{KW} = U_{KW} \prod_{j=1}^{L} X_j U^{-1}_{KW}
+    =\prod_{j=1}^{L}(Z_{j-1}Z_j) = 1, 
+\end{align}
+which means $\eta = U^{-1}_{KW}U_{KW}=1$. 
+Therefore, the KW transformation cannot be implemented by any unitary (invertible) operator. \\
+\\
+　Below, we denote the operator generating the KW by $D$. 
+The algebraic structure of operators $1, \eta, D$ and the "lattice translation operator" $T$ (re-writing site indices by $i\mapsto i+1$) is, 
+to show without derivation, 
+\begin{align}
+    \eta^2=1, ~\eta T = T \eta, ~\eta D = D \eta = D, ~ DT^{-1} = T^{-1}D = D^\dagger, ~
+    D^2 = (1+\eta)T. 
+    \label{IsingSym}
+\end{align}
+We can see that the $D$ is non-invertible since $D$ has no inverse, contrary to $\eta$. 
+\\
+　Symmetry operators can extend over any closed 1-dimensional loop in 1+1-d spacetime. 
+In particular, we can consider symmetry operators extending horizontally in time direction. 
+This is the situation where we can see a point-like operator in the exactly same spatial point at any time slice, 
+which looks like a "defect" in the Hilbert space. 
+We sometimes call such a configuration of topological operator (defect operator) as "twist" of Hilbert space by defect operator. 
+In the case of $1+1$-d CFT on torus, we have the invariance under a coordinate transformation called "modular transformation", 
+generated by $T: z\to z + 1$ and $S: z\mapsto -\frac{1}{z}$. 
+\begin{figure}[H]
+    \centering
+    \resizebox{0.6\textwidth}{!}{%
+    \begin{circuitikz}
+    \tikzstyle{every node}=[font=\LARGE]
+    \draw [ line width=0.9pt ] (2.5,15) rectangle (10,7.5);
+    \draw [line width=0.9pt, ->, >=Stealth] (1.25,6.25) -- (1.25,8.75);
+    \draw [line width=0.9pt, ->, >=Stealth] (1.25,6.25) -- (3.75,6.25);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, short] (2.5,11.25) -- (10,11.25);
+    \draw [ line width=0.9pt ] (16.25,15) rectangle (23.75,7.5);
+    \draw [line width=0.9pt, ->, >=Stealth] (15,6.25) -- (15,8.75);
+    \draw [line width=0.9pt, ->, >=Stealth] (15,6.25) -- (17.5,6.25);
+    \draw [ color={rgb,255:red,255; green,38; blue,0}, line width=0.9pt, short] (20,7.5) -- (20,15);
+    \node [font=\LARGE] at (4.25,6.25) {$x$};
+    \node [font=\LARGE] at (1.25,9.25) {$\tau$};
+    \node [font=\LARGE] at (18,6.25) {$x$};
+    \node [font=\LARGE] at (15,9.25) {$\tau$};
+    \draw [line width=0.9pt, ->, >=Stealth] (6,7.5) -- (6.25,7.5);
+    \draw [line width=0.9pt, ->, >=Stealth] (4.25,15) -- (6.25,15);
+    \end{circuitikz}
+    }
+    \caption{Modular transformation maps an operator (global on a certain time slice) to a defect (localized on every time slice). }
+    \label{SymmetryAndDefect}
+    \end{figure}
+Now, let's consider to insert a "defect" into our Hilbert space. 
+\subsection{Example from continuous: $3+1$-d $U(1)$ Maxwell theory (, again)}
+We can also find examples of non-invertible symmetry in continuous QFT. 
+Let's consider the action integral
+\newpage
 \section{What comes next?}
 In this section, we will see what comes as following topics after studying gerenalized symmetry in this text. 
 I appologize that I do not understand the following topics and cannot explain any details. 
 \subsection{Generalized charges}
 \subsection{Symmetry TFT}
+\newpage
+\section{preliminaries}
+\input{preliminaries.tex}
 \begin{thebibliography}{99}
-    %\bibitem{Hidaka} \href{}{}
     \bibitem{TDBSH} T. Daniel Brennan, Sungwoo Hong. 
     Introduction to Generalized Global Symmetries in QFT and Particle Physics. \href{https://arxiv.org/abs/2306.00912}{\texttt{arXiv: 2306.00912}}
+    \bibitem{NSSSSHS} N. Seiberg, S. Seifnashri, Shu-Heng Shao. 
+    Non-invertible symmetries and LSM-type constraints on a tensor product Hilbert space. 
+    \href{https://arxiv.org/pdf/2401.12281}{\texttt{arXiv: 2401.12281}}
+    \bibitem{Hikida} 疋田泰章「共形場理論入門 基礎からホログラフィへの道」(講談社)
+    \bibitem{TD} T. Dumitrescu. Generalized Symmetries and Phases of Gauge Theory 
+    (Lecture in IHES, 2024) \href{https://www.youtube.com/watch?v=9pqtqyGtt3M&t=3760s}{YouTube link is accessible here. }
+    \bibitem{EV} Erik Verlinde. 
+    FUSION RULES AND MODULAR TRANSFORMATION IN 2D CONFORMAL FIELD THEORY. 
+    \href{https://tianyuan.scu.edu.cn/upload/default/20220602/Verlinde_Fusion_rules_and_modular_transformations%20in%202D%20CFT.pdf}{Nuclear Physics B300 (1988), 360-376. }
+    \bibitem{HW} 渡辺悠樹「量子多体系の対称性とトポロジー」(SGCライブラリ 179, サイエンス社)
+    \bibitem{DGAKNSBW} Davide Gaiotto, Anton Kapustin, Nathan Seiberg, and Brian Willet. 
+    Generalized Global Symmetries. 
+    \href{https://arxiv.org/pdf/1412.5148}{\texttt{arXiv: 1412.5148}}
+    \bibitem{SHS} Shu-Heng Shao. 
+    \textit{What's Done Cannot Be Undone}: TASI Lectures on Non-Invertible Symmetries
+    \href{https://arxiv.org/pdf/2308.00747}{\texttt{arXiv: 2308.00747}}
+    \bibitem{BZ} Barton Zwiebach. 
+    A First Course in STRING THEORY -Second Edition. (CAMBRIDGE UNIVERSITY PRESS)
+    \bibitem{MG} 
+    John McGreevy. TASI Lectures on Symmetries in Quantum Matter. 
+    \href{https://mcgreevy.physics.ucsd.edu/talks/2023-TASI-lectures.pdf}{Lecture note available here. }
+    \bibitem{KI} Kansei Inamura. 
+    Generalized Global Symmetries. 
+    \href{https://arxiv.org/pdf/2110.12882}{\texttt{arXiv: 2110.12882}}
+    \bibitem{PESGDNVO} Pavel Etingof, Shlomo Gelaki, Dmitri Nikshych, Victor Ostrik. 
+    Tensor Categories. (Americacn Mathematical Society)
 \end{thebibliography}
 \end{document}

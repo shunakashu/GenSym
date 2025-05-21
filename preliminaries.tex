@@ -1,5 +1,5 @@
 この分野を勉強するにあたって役に立ちそうな知識を, ごくごく簡単にまとめます. 
-higher-form symmetryとその例を理解するにはゲージ理論の知識が, またnon-invertible symmetryの例を理解するにはCFTの知識が多少必要になります. 
+higher-form symmetryとその例を理解するにはゲージ理論の知識が, およびnon-invertible symmetryの例を理解するにはCFTの知識が多少必要になります. 
 また, 一般の多様体上で微分や積分を局所座標に依存しない形で定式化するためには, 微分形式の言葉が必要になります. 
 \subsection{微分形式}
 ここでは, 時空多様体$M$は微分可能であり, 局所座標系$\{(U, \phi)\}$($\phi: U\to \re^{d}$)が与えられているものとします. 
@@ -142,7 +142,7 @@ $M^{d+1}$上の標構束$P_{SO(E)}$を与える事ができる.
 これはベクトル束の切断$\phi: U(\subset M^{d+1})\to V$の構造を持つ. \\
 　ゲージ理論もまた, 時空多様体$M^{d+1}$上のベクトル束の言葉で定式化される. 
 ゲージ群を$G$とする時, 物質場$\phi$は主$G$束$P$に対する同伴ベクトル束$P\times_\phi V$の切断として, 
-ゲージ場$A$は主$G$束の$\mathfrak{g}$値接続1形式
+ゲージ場$A$は主$G$束の$\mathfrak{g}$値接続1-形式
 \footnote{ベクトル束の接続とは, ベクトル束$(E, \pi)$および$E$の切断全体の集合$\Gamma(E)$に対して定義される汎函数
 $\nabla : \mathfrak{X}(M)\times \Gamma(E)\to \Gamma(E)$
 であり, $\mathfrak{X}(M)$, $\Gamma(E)$に関する線形性および$\Gamma(E)$に関するライプニッツ則
@@ -156,65 +156,331 @@ $$\nabla s|_p : X_p\in T_{p}M \mapsto \nabla_{X_p}s|_p \in E$$
 $$\nabla s: M \to T^{*}M\otimes E$$を考えると, 
 $\nabla$は切断$s: M\to E(\in \Gamma(M))$に切断$\nabla_s: M\to T^{*}M\otimes E (\in \Gamma(T^{*}M\otimes E))$を対応させる(線形な)写像として定義できる. \\
 %接続形式の定義
+　ベクトル束の接続$1$-形式とは, 
 }%
 $\Gamma(U, \Omega^1(U)\times \mathfrak{g})$として与えられる. 
 ここで, 主$G$束, および主束に同伴するベクトル束の定義は, それぞれ以下の通り. 
+\begin{definition}[主$G$束]
+    $G$を位相群(群演算が$G$上の連続写像として書けるような群), $P$を
+    連続な右作用$\rho: P\times G \to G$が定まっているような位相空間とする. 
+    この$P$を同値関係
+    \begin{align}
+        x\sim x' \Leftrightarrow \exists g\in G~s.t. ~ x'=xg
+    \end{align}
+    で割ったものを$B=P/\sim $とする. 
+    この右作用が自由(つまり, $\forall x\in P, 
+    \forall g, h\in G$に対して$xg=xh$ならば$g=h$となる)ならば, 
+    標準的な射影$\pi: P\to B$は主$G$束(principal $G$-bundle)であるという. \\
+    　主$G$束は, しばしば短完全系列
+    \begin{align}
+        0\incl G\to P\stackrel{\pi}{\to} B\to 0
+    \label{pGbundle}
+    \end{align}
+    によって表される. 
+\end{definition}
+\begin{definition}[同伴ベクトル束]
+    $\rho$
+\end{definition}
+また, リー群$G$の共役表現およびリー代数$\mathfrak{g}$の随伴表現は, それぞれ次で定義される表現である. 
+\begin{definition}[共役表現]
+    $G$
+\end{definition}
+\begin{definition}[随伴表現]
+    $\mathfrak{g}$
+\end{definition}
 %definitionを述べる
-　上の定式化の下で, ゲージ変換は, 
-\subsubsection{背景ゲージ場のゲージ化}
-ゲージ理論では, 力学的自由度としての物質場の他に, ゲージ自由度(冗長性)を記述する背景ゲージ場が存在し, 
-物質場がゲージ場と結合することで, 全体としてゲージ不変なラグランジアンをなしている. 
-背景ゲージ場は, 力学変数ではなくあらかじめ時空に与えられた古典的な場である. 
-ゲージ不変な場の理論を定義するために必要な「環境」のようなものと思えば良い(のか?). \\
-　理論にゲージ不変性がある時, ゲージ群$G$に対する大域的変換の下での対称性から, 保存カレントが存在する: 
+　ゲージ理論において重要な量として, ホロノミーと呼ばれるものがある. 
+\begin{definition}[水平持ち上げ]
+    $\rho$
+\end{definition}
+\begin{definition}[ホロノミー]
+    $\rho$
+\end{definition}
+\subsubsection{局所対称性: 背景ゲージ場との結合}
+ゲージ理論においては, 力学的自由度としての物質場の他に, ゲージ自由度(冗長性)を記述する背景ゲージ場が存在し, 
+物質場のカレントがこのゲージ場と結合してそれぞれが変換則に従うことで, 全体として局所ゲージ不変な作用を構成している. 
+このようにして, 大域的ゲージ対称性(あるいは, そのカレント)から局所ゲージ不変な理論の作用を与える手続きを, 局所ゲージ化と呼ぶ. \\
+　背景ゲージ場は, 力学変数ではなくあらかじめ時空に与えられた古典的な場であり, 
+大域的対称性のみを考える上では理論に登場しない(見えない). 
+これは, 局所ゲージ不変な場の理論を定義するために必要な「環境」あるいは「舞台」のようなものと思えば良い(のか?). \\
+　理論にゲージ不変性がある時, ゲージ群$G$に対する大域的変換の下での($0$次)対称性から, 保存カレントが存在する: 
 \begin{align}
     \delta S = \int \partial_\mu \epsilon(x)j^\mu (x)d^dx, ~ 
     \mathrm{for}~ \phi(x)\mapsto \phi(x)+ \epsilon(x)\delta \phi(x). 
 \end{align}
 この保存カレント$j^{\mu}$に対して1-form $j=j_{\mu}dx^{\mu}$を考えると, 
 そのHodge双対は閉形式となる: $d\star j=0$. 
-以下, この閉$d$-formのことを保存カレント$\star j$と呼ぶことにする. \\
-　保存カレントが存在する時, それと背景ゲージ場との結合は, 作用に次の項を加えることによってなされる: 
+以下, この閉$d$-formのことを保存カレント$\star j$と呼ぶことにする. \\\\
+　保存カレントが存在する時, それと背景ゲージ場との結合は, 作用に次の項を加えることで行われる: 
 \begin{align}
-    S + = i\int A_{\mu}(x)j^\mu(x)d^d x = i\int A\wedge \star j. 
+    S + = 2\pi i\int A_{\mu}(x)j^\mu(x)d^d x = 2\pi i\int A\wedge \star j (=: S_{gauge}). 
 \end{align}
-カレントが$d$-formの時, 結合する背景ゲージ場は$1$-formとなる
-(higher-form symmetryの場合, より高次の背景ゲージ場との結合を考えることになる). 
-この時, 背景ゲージ場のゲージ変換$A\to A + d\lambda$の下で($\lambda$: $0$-form), 
-作用は
+係数$2\pi i$は単なる規格化の因子. 
+カレントが$d$-formの時, 作用全体は$(d+1)$-formの$(d+1)$次元時空にわたる積分の形になるべきなので, 結合する背景ゲージ場は$1$-formとなる
+(higher-form symmetryの場合, より高次の背景ゲージ場との結合を考えることになる). \\
+　暫くは簡単のため$U(1)$の$0$次対称性を考える. いま, 場$\psi$の微小な局所的内部変換$\psi(x)\mapsto \psi(x) + i\epsilon(x)q\psi(x)$に対して, 作用の変化分は
+(ここの計算は, 内部対称性に対するNoetherカレントの導出と同じ)
 \begin{align}
-    \delta S_{\lambda} = i\int d\lambda(x) \wedge \star j
-    =- i\int \lambda(x)\wedge d\star j
-    =0 ~~(\because \mathrm{current~conservation})
+    \delta S = \int d^{d+1}x \frac{\partial \mathcal{L}}{\partial(\partial_\mu \psi)}iq\psi(x)\partial_\mu\epsilon(x)
+    =i\int d^{d+1}x j^\mu(x)\partial_\mu \epsilon(x)
+    =i\int d^{d+1}x \partial_\mu j^{\mu}(x) \epsilon(x)
+    =i\int d\star j^{d} \epsilon
+%\label{}
 \end{align}
-となり不変である. \\
+となる(最後の等式は単に微分形式で書き直しただけ). 
+カレントと結合する背景ゲージ場がある時は, 結合項が運動方程式を変えるために局所変換のもとでカレントは保存せず, 
+物質場のみの変換を考える限りでは作用は不変でなくなる. 
+しかし, 
+背景ゲージ場のゲージ変換$A\to A + \frac{1}{2\pi}d\epsilon$を同時に行えば, 
+全体の作用$S_{tot} = S + S_{gauge}$は
+\begin{align}
+    \delta S_{tot} = i\int d\star j^{d} \epsilon  +  2\pi i\int \frac{1}{2\pi}d\epsilon \wedge \star j^d
+    =i\int d\star j^{d} \epsilon + \int d(\epsilon \wedge \star j^d) - \int \epsilon d \star j^{d}
+    =\int d(\epsilon \wedge \star j^d) = 0
+\end{align}
+となり不変である. 
+ゆえ, 背景ゲージ場と結合させた理論は, 変換
+$\psi \to \psi + i\epsilon q \psi, ~ A\to A + \frac{1}{2\pi}d\epsilon$($\epsilon: 0$-form, not closed
+\footnote{時空全体が連結な場合, closed $0$-form全体の集合は(局所)定数関数である
+(このことは, 連結な微分可能多様体$M$に対して, 
+その$0$次のde Rhamコホモロジー群が$H^{0}_{\mathrm{dR}}(M)\simeq \re$であるとも言える). 
+特に, 平坦な時空(あるいはそれとホモトピー同値な時空)の場合, 開被覆は$U=M$の1枚のみなので, closed $0$-formは大域的に定数な関数に他ならない. 
+そのような$\epsilon$による変換は大域的変換であり, Noetherカレントの定義から, この変換の下で作用は自明に不変. \\
+(メモ)時空が平坦(up to homotopy)でない場合, 異なる開近傍ごとに異なる変換を施すことも「closed $0$-formによる変換」として許されるので, 
+開近傍の交叉の上で滑らかでない内部変換を考えることができ, もう少し面白いことが言える
+(ちなみに, このようなことを球面上の物質場がない=pureな$U(1)$ゲージ理論に対して考えると, $dB\neq 0$ at $x\in U_{N}\cap U_{S}$, すなわち$\mathrm{div} \bm{B}\neq 0$
+となりDirac monopoleと呼ばれるトポロジカルに非自明な配位が出現する). 
+}
+)
+に対して不変であることが分かる. 
+\subsubsection{'t Hooftアノマリー}
 %"symmetry defect operators implement a background gauge transformation along its world volume"
-　理論において, カレントを背景ゲージ場と結合させた時, カレントの保存則は
-「背景ゲージ場$A$のゲージ変換の下で分配関数が不変となること」に換言できる. 
-いま, 先の方法で背景ゲージ場と結合させた理論の作用$S[\psi, A]$に対して, 分配関数は$A$に依存する形で
-\subsubsection{離散ゲージ理論}
-物理学では, $\mathbb{Z}_2$対称性や$\mathbb{Z}_{N}$対称性のような離散的な対称性が重要な役割を果たすことがある. 
-このような離散的な内部対称性を持つ理論, すなわち離散ゲージ理論について簡単に述べる. \\
-　離散的な変換の場合, 場の各点ごとに異なる変換を施すという事が意味を持たなくなる
-(時空座標が連続的で無限個の点からなるのに対して, 変換群の元は離散的で有限個であるため). 
-そこで, 離散ゲージ理論では, 場の定義される時空を単体分割して離散的に取り扱う. 
-単体分割とは, 微分可能な多様体を, その「基本単位」である単体の和(形式的線型結合)に分割することである. 
-$0$次元の単体($0$-単体)は点, $1$次元単体($1$-単体)は線分, $2$次元単体($2$-単体)は三角形, などなど. 
-$p$次元の単体は$p$-単体と呼ばれ, これは$(p+1)$個の互いに独立な頂点$(v_0, \cdots, v_p)$を(向きを考慮して)結んで出来る. \\
-　連続的な場の理論におけるゲージ変換では, 時空上の各点に$G$の元を割り当てていた. 
-ここではその代わりに, 単体分割された時空において, $p$-単体に対して$G$の元を割り当てる写像(=\textbf{$p$-コチェイン})を考えることにする
-(ただし, $G$はAbel群). 
-このような写像が"コチェイン"と呼ばれる理由は, $p$-コチェインに対して$(p+1)$-コチェインを返す写像
+　ある理論の作用に対して, カレントと背景ゲージ場とを結合させると, カレントの保存則は
+「背景ゲージ場$A$に対するゲージ変換のもとで分配関数が不変となること」に言い換えられる. 
+いま, 背景ゲージ場と結合させた物質場の作用を$S[\psi; A]$のように書く時, 理論の分配関数は
 \begin{align}
-    \delta c_p
+    Z[A]=\pint{\psi}e^{-S[\psi; A]}
+\label{partitionfunc}
 \end{align}
-があるからである
-($G$係数のコホモロジーを構成できる). 
+と書ける. 背景ゲージ場はあくまで「背景」場であり経路積分の対象としないため, この分配関数は背景場の汎函数になる. 
+ここで, この分配関数に対して, 背景場の変換$A\to A + d\lambda$を行うと, 
+\begin{align}
+    Z[A+d\lambda]&=\pint{\psi}e^{-S[\psi; A+d\lambda]}\\
+    &=\pint{\psi}e^{-S[g^{-1}\psi; A]} ~~(作用の不変性: S[\psi, A]=S[g\psi, A+\delta]~\mathrm{for}~\exists g\in U(1). g=e^{iq\lambda}. )\\
+    &=\pint{(g\psi)}e^{-S[\psi; A]} ~~(経路積分の変数変換)
+\label{partitionfunc}
+\end{align}
+となる. この経路積分測度$\mathcal{D}\psi = \prod_{x_i}d\psi(x_j)$
+\footnote{この経路積分測度の書き方は非常にインフォーマルであり, $j$は「時空格子の各格子点のラベル」だと思えばとりあえずOK. 
+厳密には時空格子の格子間隔$a\to 0$の極限を取るべきだが, そのような極限の下で発散しない測度を構成できるか? という疑問が残る. }が
+$U(1)$変換(あるいは, 一般のゲージ群$G$の元による内部変換)の下で不変にならない時, すなわち何らかの非自明な位相
+$\mathcal{D}(g\psi) = e^{i\int \alpha[A, \lambda]}\mathcal{D}\psi$
+を獲得してしまう時
+\footnote{このように, ある大域的対称性$G$の局所ゲージ化のもとで分配関数のゲージ不変性が破れるか否かを, 
+物質場$\psi$(より一般の言い方をすれば, 理論における力学的自由度)の経路積分測度$\mathcal{D}\psi$の変換則, すなわち変数変換のJacobianを調べることによって判定する方法を, 
+考案者の名前を取って「藤川の方法」という. 
+経路積分測度は「時空上のあらゆる点において, あらゆる可能な場の配位について考慮せよ(足し上げよ)」というものであるから, 
+これは変換群$G$のみならず系の力学そのものに依存して決まる. 
+ゆえ, 分配関数の不変性の破れを調べる問題は, 「どのような大域的対称性のもとで, どのような力学(あるいは作用)を考えるか」に依る問題である. \\
+　なお, ゲージ群$G$の選択によっては, どのような物理的な(=背景時空の対称性を尊重した)作用に対しても't Hooftアノマリーが出現しないということが知られている. 
+この点は, 九後「ゲージ場の量子論(II)」の9章-2にも言及がある. 
+}
+, 分配関数は背景場のグローバルな変換$A\to A+ d\lambda$の下で不変にならない. 
+これは, 理論の大域的対称性を局所ゲージ化する際に, 分配関数の不変性を保てなくなってしまうという事態を意味する. 
+この「大域的対称な理論を局所ゲージ化すると分配関数が不変でなくなること」を, 理論に\textbf{ゲージアノマリー}(摂動アノマリー, 't Hooftアノマリー)があるといい
+\footnote{厳密にはこれらは区別されるもの......なんだっけ?}, 
+この不変性の破れを表す位相$e^{i\int \alpha[A, \lambda]}=Z[A+\lambda]/Z[A]$の事を\textbf{'t Hooftアノマリー}と呼ぶ
+\footnote{この't Hooftアノマリー(位相の変化分)は, 背景場の有効作用$\Gamma[A]=\log Z[A]$の変化分$\delta_\lambda \Gamma[A]$との間に
+\begin{align}
+    e^{i\int \alpha[A, \lambda]} = 1-i\delta_\lambda \Gamma[A] + (\lambda の高次項)
+\end{align}
+という関係がある. }. 
+%アノマリー流入仮説について
+ 't Hooftアノマリーのある理論の分配関数から, ゲージ不変な分配関数を与える処方が存在する. 
+ 暫くは, $D=d+1$として, $D$次元の$U(1)$ 't Hooftアノマリーがある場の理論を考えることとする. 
 \subsection{共形場理論(CFT)}
+Non-invertible symmetryの重要な例の多くは, $1+1$次元のRational CFT (RCFT)において発見されてきました
+(例えば, \cite{EV}など). 
+ここでは, 共形場理論の重要な概念についてなるべく説明を試みます. 
 \subsubsection{共形対称性とは}
-\subsubsection{相関関数}
+共形場理論では, 共形変換とよばれる次の変換について考える: 
+\begin{definition}{共形変換}
+    計量を持つ多様体(物理的には, 時空多様体)$(M, g)$, $(N, g)$の間の局所微分同相$\varphi: U\to V$が, 
+    ある$C^\infty$関数$\Omega: U\to \re$を用いて
+    \begin{align}
+        \varphi^{*}g' = \Omega^2 g
+    \end{align}
+    と書ける時, $\varphi$を共形変換と呼ぶ. 
+    ここで, $\varphi^*$は$\varphi$による計量の引き戻しである. \\
+    　$U$および$V$を$\real{d}$のもとで局所座標表示すると, $\varphi$による変換は座標変換
+    $(x^1, \cdots, x^n)\mapsto \varphi(x^1, \cdots, x^n)=(\varphi(x^1), \cdots, \varphi(x^n))$を引き起こす. 
+    この時, 共形変換の定義式(計量の引き戻しに関する式)は
+    \begin{align}
+        (\varphi^{*}g')_{\mu\nu}(x)=g^{'}_{\rho\sigma}(\varphi(x))\frac{\partial \varphi^\rho}{\partial x^\mu}\frac{\partial\varphi^\sigma}{\partial x^\nu}
+        =\Omega^2 g_{\mu\nu}(x)
+    \end{align}
+    と書ける. 
+\end{definition}
+特別な場合として時空を$1+1=2$次元に取り, $z=x+i\tau$として$\real{2}$を$\mathbb{C}$とみなせば, 
+共形変換は局所的に可逆な正則変換(ないし反正則変換)として書ける. \\
+　大域的な共形変換(時空上の全ての点に同じ変換を施す操作)は, 回転, スケール変換, 平行, およびその任意の合成で書ける. Riemann球面$\mathbb{C}\cup {\infty}$($\{\infty\}$: 無限遠点)では, これは
+「メビウス変換」
+\begin{align}
+    \varphi: z\mapsto \frac{az + b}{cz + d}, ~ a, b, c, d\in \mathbb{C}, ad-bc=1
+    \label{Mobius}
+\end{align}
+として書ける(この変換全体は行列群$\mathrm{SL}(2, \mathbb{C})$をなす). 
+\subsubsection{プライマリ場と相関関数}
+以下, 共形変換$z\mapsto w$の元で「良い振る舞いをする」場の演算子を考えたい. 
+\begin{definition}{プライマリー場, 共形ウェイト}
+    (局所変換も含めた一般的な)共形変換$z\mapsto w, \bar{z}\mapsto \bar{w}$の下で
+    \begin{align}
+        \phi(z, \bar{z}) = \phi'(w, \bar{w})\ler{\frac{dw}{dz}}^h \ler{\frac{d\bar{w}}{d\bar{z}}}^{\bar{h}}
+    \end{align}
+    のように変換する場を\textbf{プライマリ場}といい, この時の指数$(h, \bar{h})$を\textbf{共形ウェイト}という. 
+\end{definition}
+このような場は, スケール変換$z\mapsto \lambda z(\lambda\in \re)$および回転$z\mapsto e^{i\theta}z$に対してそれぞれ
+\begin{align}
+    \phi(z, \bar(z))= \phi'(\lambda z, \lambda\bar{z})\lambda^{h+\bar{h}}, ~~
+    \phi(z, \bar(z))= \phi'(e^{i\theta}z, e^{-i\theta}\bar{z})e^{i\theta(h-\bar{h})}
+\end{align}
+と変換する. $h+\bar{h}=: \Delta$はスケーリング次元, $h-\bar{h}=: s$はスピンと呼ばれる. 
+なお, 大域的共形変換のみに対してこのような変換則を満たすものは, 「準」プライマリ場と呼ぶ. 
+準プライマリ場の重要な例として, 後述するエネルギー運動量テンソルなどが挙げられる. \\
+　プライマリ場の無限小共形変換$z\mapsto z + \epsilon(z)$を考えると, (計算略)
+\begin{align}
+    \phi (z, \bar{z})\mapsto 
+    \phi (z, \bar{z}) + \slr{\epsilon(z)\frac{\partial}{\partial z}\phi(z, \bar{z})-h\epsilon(z)\phi(z, \bar{z})}
+    +\slr{\bar{\epsilon}(\bar{z})\frac{\partial}{\partial \bar{z}}\phi(z, \bar{z})-\bar{h}\bar{\epsilon}(\bar{z}\phi(z, \bar{z}))}
+    +\mathcal{O}(\epsilon^2)
+\end{align}
+となる. すなわち, プライマリ場の無限小変換則は, 
+正則部分$\phi_h(z)$と反正則部分$\phi'_{\bar{h}}(\bar{z})$に完全に分けて扱うことができる. \\
+\\
+　プライマリ場の重要な点として, 共形対称性から相関関数の形が強い制約を受けるというものがある. 
+対称性の帰結として, 大域的な共形変換のもとで相関関数は不変に保たれる: 
+\begin{align}
+    \sum_{i=1}^{N}\lr{\phi_1(z_1, \bar{z}_1)\cdots \delta_\epsilon\phi_i(z_i, \bar{z}_i)\cdots \phi_N(z_N, \bar{z}_N)}
+    \label{Csym}. 
+\end{align}
+ここで, \eqref{Mobius}で$a-1, b, c, d-1$を無限小に取る(要するに, 恒等変換$a=d=1, b=c=0$にきわめて近い変換を考える)と, 
+\begin{align}
+    z\mapsto z + b + (a-1+d-1)z -cz^2 + (高次項)
+\end{align}
+となるから, 無限小の大域的共形変換は$1, z, z^2$とその線型結合によって書ける. 
+これを踏まえて, 大域的共形変換$z\mapsto z + \epsilon(z)$を$\epsilon=1, z, z^2$に対して施せば, \eqref{Csym}からそれぞれ
+\begin{align}
+    \sum_{i}\lr{\phi_1(z_1)\cdots \frac{\partial}{\partial z_i}\phi_i(z_i)\cdots \phi_N(z_N)}=0, 
+\end{align}
+\begin{align}
+    \sum_{i}\lr{\phi_1(z_1)\cdots \ler{h_i + z_i\frac{\partial}{\partial z_i}}\phi_i(z_i)\cdots \phi_N(z_N)}=0, 
+\end{align}
+\begin{align}
+    \sum_{i}\lr{\phi_1(z_1)\cdots \ler{2h_i z_i + z_i^2\frac{\partial}{\partial z_i}\phi_i(z_i)}\cdots \phi_N(z_N)}=0
+\end{align}
+となる. ただし, 
+プライマリ場の性質上, 無限小変換は正則部分のみ考えれば良い(反正則部分についてはparallelである)ことを考慮して, 
+$z$依存性のみ表記した(以後も事に応じてプライマリ場についてはそうする). 
+これらの式, および
+並進対称性から$n$点相関関数の$z_i$依存性は必ず$z_i-z_J$の形で入ることを用いれば, 1点, 2点, 3点関数の形が(計算略)
+\begin{align}
+    \lr{\phi(z)} = \left\{
+    \begin{array}{ll}
+    \mathrm{const. } & (h=0)\\
+    0 & (h\neq 0)
+    \end{array}
+    \right.
+\end{align}
+\begin{equation}
+    \lr{\phi_1(z_1, \bar{z_1})\phi_2(z_2, \bar{z}_2)} = \left\{
+    \begin{array}{ll}
+    \frac{\mathrm{const.}}{(z_1-z_2)^{2h_1}(\bar{z}_1-\bar{z}_2)^{2h_2}} & (h_1=h_2, \bar{h}_1 = \bar{h}_2)\\
+    0 & (\mathrm{otherwise})
+    \end{array}
+    \right.
+\end{equation}
+\begin{align}
+    &\lr{\phi_1(z_1, \bar{z_1})\phi_2(z_2, \bar{z}_2)\phi_3(z_3, \bar{z}_3)}\\
+    &= \frac{C_{123}}{(z_1-z_2)^{h_1 + h_2 - h_3}(z_2-z_3)^{h_2 + h_3 - h_1}(z_3-z_1)^{h_3+h_1-h_2}
+    (\bar{z}_1-\bar{z}_2)^{\bar{h}_1+\bar{h}_2-\bar{h_3}}(\bar{z}_2-\bar{z}_3)^{h_2 + h_3 - h_1}(\bar{z}_3-\bar{z}_1)^{h_3+ h_1-h_2}}\\
+    &=: \frac{C_{123}}{z_12^{h_12}z_{23}^{h_23}z_{31}^{h_31}\bar{z}_{12}^{\bar{h}_12}\bar{z}_{23}^{\bar{h}_23}\bar{z}_{31}^{\bar{h}_{31}}}
+\end{align}
+とまで決定できる($z_{ij}=z_i-z_j, h_{ab}=h_a + h_b - h_c~~(i,j,a,b,c\in \{1,2,3\})$と略記). 
+未知の係数は別の方法(演算子積展開)で決める. \\
+　4点関数については, 後述の通り, 演算子積展開よって3点関数に帰着することで形を制限できる(座標依存性を完全に決定することはできない). 
+\subsubsection{エネルギー運動量テンソル}
+\textbf{エネルギー運動量テンソル}は, 通常は時空の無限小並進$x\mu\to x^\mu-\epsilon^\mu$
+\footnote{より正確には, 時空の無限小並進と場の相対的不変性から誘導される場の無限小変換}
+に対する保存カレント
+\begin{align}
+    T^{\mu}_\nu = \frac{\partial\mathcal{L}}{\partial(\partial_\mu \phi)}\partial_\nu \phi - \delta^\mu_\nu \mathcal{L}
+\end{align}
+として定義されるが, CFTの文脈では計量テンソルの無限小変換
+$g_{\mu\nu}\to g _{\mu\nu} + \delta g_{\mu\nu}$
+に対する作用の変分によって定義する: 
+\begin{align}
+    \delta S = \int d^d x \frac{\delta S}{\delta g_{\mu\nu}}(x)\delta_{\mu\nu}(x)
+    =: \frac{1}{4\pi}\int d^d x \sqrt{|\det g|}\ler{\frac{4\pi}{\sqrt{|\det g|}}T^{\mu\nu}}\delta g_{\mu\nu}~. 
+\end{align}
+係数$\sqrt{|\det g|}$は曲がった時空の場合でも扱いやすくするためにつけている. 
+この座標表示のもとで, $T^{\mu\nu}$はトレースが$0$の対称テンソルである
+\footnote{ただし, 計量の変換によって相関関数の定義式における経路積分測度が不変であるとした. 
+この不変性が破れる時, $T^{\mu\nu}$がトレースレスにならないことがある(トレースアノマリー). }. \\
+平坦な$1+1$次元時空で複素座標を用いる($z=x_1 + ix_2$)と, 各成分は
+\begin{align}
+    T_{zz} &= \frac{1}{2}(T_11 - iT_{12})\\
+    T_{\bar{z}\bar{z}} &= \frac{1}{2}(T_11+iT_{12})\\
+    T_{z\bar{z}}&=T_{\bar{z}z}=0\\
+\end{align}
+となる(最後の2つは実座標におけるトレースレスネス). 
+また, 保存則は
+\begin{align}
+    \frac{\partial}{\partial \bar{z}}T_{zz}=0, ~\frac{\partial}{\partial z}T_{\bar{z}\bar{z}}=0
+\end{align}
+と書ける. すなわち, 複素座標系では$T_{zz}$は正則な, $T_{\bar{z}\bar{z}}$は反正則な関数となる: 
+$T_{zz}=T(z), ~ T_{\bar{z}\bar{z}}=\bar{T}(\bar{z})$. \\
+この$T(z)$を用いれば, 
+一般の無限小微分同相写像(局所変換)$z\mapsto z + \epsilon(z)$に対する相関関数の不変性からの帰結として, 
+\textbf{共形Ward-高橋恒等式}
+\begin{align}
+    \label{CWT}
+    \sum_{i=1}^{N}\lr{\phi_1(z_1, \bar{z}_1)\cdot \delta_\epsilon\phi_i(z_i, \bar{z}_i)\cdots \phi_N(z_N, \bar{z}_N)}
+    +\frac{1}{\pi}\int_{M} d^2 z \partial_z \epsilon^z \langle T(z) \phi_1(z_1, \bar{z}_1)\cdots \phi_N(z_N, \bar{z}_N)\rangle
+    =0
+\end{align}
+を得る. 第2項は時空全体での積分であるが, これをCauchyの積分定理を用いて点$z_i\in M$を囲む円周上の積分に取り直すと, 
+\begin{align}
+    \delta_\epsilon \phi(z_i, \bar{z}_i) = \frac{1}{2\pi}\oint_{z_i}dz \epsilon(z)T(z)\phi_i(z_i, \bar{z}_i)
+\end{align}
+となる. 
 \subsubsection{演算子積(OPE)}
-
+一般に, QFTにおいて, 2つの局所演算子が時空上の十分近い点$z, w$($|z-w|$: sufficiently small
+\footnote{何をもってsufficientとするかは, 考えている理論のスケールによる問題である. 
+例えば, ものすごく遠くから系を見る(格子間隔を小さいとみなす$\leftrightarrow$低エネルギースケールで考える)場合, 
+この展開はそのスケールにおいてより厳密になる. }
+)に存在する時, それらを1つの点での局所演算子によって展開できる. 
+%プライマリ場の場合, 
+この時の展開係数は一般に$z$と$w$の関数となる: 
+\begin{align}
+    \phi_i(z) \phi_j(w)=\sum_{k\in }
+\end{align}
+OPEを利用して, プライマリ場の4点関数について調べ良い. 
+まず, 大域的共形不変性から, 4点関数は最も一般には次のように書けることがわかる: 
+\begin{align}
+    \lr{\phi_1(z_1, \bar{z}_1)\phi_2(z_2, \bar{z}_2)\phi_3(z_3, \bar{z}_3)\phi_4(z_4, \bar{z}_4)}
+    =F\ler{\frac{z_{12}z_{34}}{z_{13}z_{24}}, \bar{\frac{z_{12}z_{34}}{z_{13}z_{24}}}}
+    \prod_{j<l}^{4}z_{jl}^{(h/3 - h_j - h_l)}z_{jl}^{\bar{h}/3 - \bar{h}_j - \bar{h}_l}~. 
+\end{align}
+ただし, $h=\sum_{j=1}^4h_j, ~ \bar{h}=\sum_{j=1}^4 \bar{h}_j$. 
+未知の係数関数$F$は, 大域的共形不変性によって, 交差比$\frac{z_{12}z_{34}}{z_{13}z_{24}}$のみの関数であることがわかる. 
+交差比は4つの座標点のうち3つを任意に移動させても不変であるので, $z=z_3$として
+$$(z_1, z_2, z_3, z_4)\mapsto (\infty, 1, z, 0)$$
+と移してしまっても良い. この時, 関数
+\begin{align}
+    G^{21}_{34}\lim_{w, \bar{w}\to \infty}w^{2h_w}\bar{w}^{2\bar{h}_w}\lr{\phi_1(w, \bar{w})\phi_2(1, 1)\phi_3(z, \bar{z})\phi_4(0,0)}
+\end{align}
+を定義し, これを
+\subsubsection{Virasoro代数の構成}
 \subsubsection{状態-演算子対応}
 \subsubsection{ミニマル模型}
-\subsubsection{Ising CFT: $(p.q)=(3,4)$のミニマル模型}
+%\subsubsection{Ising CFT: $(p.q)=(3,4)$のミニマル模型}
