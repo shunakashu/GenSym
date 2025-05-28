@@ -400,7 +400,9 @@ Then, we have
 which is exactly the same as \eqref{WTeq}. 
 \subsection{Higher-form symmetries are always abelian}
 In the case of ordinary symmetry, we often encounter systems with non-abelinan group symmetry, 
-such as the $SU(3)\times SU(2)\times U(1)$ of the Standard Model. 
+such as the $SU(3)\times SU(2)\times U(1)$ of the Standard Model
+\footnote{Or, dihedral group $D_3$ for example, as was mentioned in 5/21 group seminar by Yan. 
+}. 
 However, for symmetry higher than $1$, we will see there are only abelian symmetry algebras. \\
 　The reason is that, for symmetry operators (topological operators) in higher ($p\geq$ 1) forrm symmetry, 
 there are more than two remaining dimensions on which they can move freely. 
@@ -738,8 +740,18 @@ This part is mainly based on \cite{TD}. Please see his video for detail. \\
 \end{align}
 The action is the form of coupling magnetic $2$-form current $\star J^{m}_2 = \frac{1}{2\pi}F$ to dynamical gauge field $\tilde{A}$. 
 "Integraling out" the $\tilde{A}$ field obviously reproduces the action \eqref{U1pure}, 
-which means that 
-gauging magnetic $1$-form symmetry $U^{(1)}_m$ yields an electric $1$-form symmetry $U^{(1)}_e$. \\
+which means that gauging magnetic $1$-form symmetry $U^{(1)}_m$ yields an electric $1$-form symmetry $U^{(1)}_e$. 
+Mathematically, gauging the symmetry $\mathcal{G}$ in a theory $\mathcal{T}$ gives 
+another theory $\mathcal{T}/\mathcal{G}$, whose symmetry is given as the Pontryagin dual: 
+\begin{align}
+    \hat{\mathcal{G}}:= \mathrm{Hom}(\mathcal{G}, U(1)). 
+\end{align}
+$\mathrm{Hom}$ is the set of (group) homomorphisms (群準同型) between two groups. 
+For abelian group, the Pontryagin dual is known to be the same as the original one: 
+$\hat{A}\simeq A$ ($A$: abelian). 
+Therefore, by gauging (magnetic) $1$-form $U(1)$ symmetry, 
+we succeeded in obtaining another (electric) $1$-form $U(1)$ symmetry as its dual. 
+\\
 　Another way to study the relation of $U^{(1)}_e$ and $U^{(1)}_m$ is to consider the equation of motion for $\tilde{A}$ in the action \eqref{dualityAction}, 
 which is
 \begin{align}
@@ -838,14 +850,14 @@ The adjoints $\mathrm{ev}^R_x = (\mathrm{ev}^{L}_x)^\dagger$ and $\mathrm{coev}^
 　The associavity and left/right units satisfy the following identity, written in a language of commutative diagram: 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{pentagon.png}
+    \includegraphics[width=0.8\textwidth]{pentagon.png}
     \caption{The "pentagon identity" of the associator $\alpha_{x,y,z}$, for $x,y,z\in \mathrm{Obj}(\mathcal{C})$. 
     Images from \cite{KI}. }
     \label{pentagon}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{lrunits.png}
+    \includegraphics[width=0.5\textwidth]{lrunits.png}
     \caption{The identity of left and right units. 
     Images from \cite{KI}. }
     \label{lrunits}
@@ -911,7 +923,10 @@ The adjoints $\mathrm{ev}^R_x = (\mathrm{ev}^{L}_x)^\dagger$ and $\mathrm{coev}^
   into that of a more general algebraic structure
   \footnote{This algebraic structure is the so-called \textit{Hopf algebra}, 
   which can be undeestood as an abstraction of group property. 
-  Hopf algebra is }
+  For the property of Hopf algebra and its usability for TQFT w/ non-invertible symmetry, 
+  please refer to \cite{KI} for example. \\
+  %Hopf algebra is 
+  }
   . 
   In other words, the category of irreps. of finite group $\mathrm{Rep}(G)$ is one simple example of fusion category. 
   This consists of 
@@ -964,7 +979,6 @@ Many works have been done on such attempts, especially for lattice field theory.
 \color{red}
 Undone
 \color{black}
-
 From the perspective of categorical symmetry, 
 the symmetry structure of anyon is given as a \textit{braiding} on a monoidal category, 
 which is a natural isomorphism $c_{X,Y}: X\otimes Y \to Y\otimes X$
@@ -1016,10 +1030,21 @@ The algebraic structure of operators $1, \eta, D$ and the "lattice translation o
 to show without derivation, 
 \begin{align}
     \eta^2=1, ~\eta T = T \eta, ~\eta D = D \eta = D, ~ DT^{-1} = T^{-1}D = D^\dagger, ~
-    D^2 = (1+\eta)T. 
+    D^2 = (1\oplus \eta)T. 
     \label{IsingSym}
 \end{align}
-We can see that the $D$ is non-invertible since $D$ has no inverse, contrary to $\eta$. 
+We can see that the $D$ is non-invertible since $D$ has no inverse, contrary to the case of $\eta$ ($\eta^{-1}=\eta$). 
+Also
+\footnote{
+    Another example is to consider the "quantum dimension" of simple objects of fusion category $\mathrm{TY_{+}}$. 
+    Considering the quantum dimension and the fusion rules of Ising CFT together, we can see
+    $\dim{D^2}=(\dim{D})^2 = \dim (1\oplus \eta)$ and $\dim{\eta^2}= (\dim{\eta})^2 = 1$. 
+    The latter gives $\dim{\eta}=1$, then we get $\dim{D}=\sqrt{2}$. 
+    It is known that any operators with quantum dimension higher than $1$ is non-invertible. 
+    }
+, the fact that $D^2 = (1+\eta)T$ shows that, 
+$D^2$ behaves as a projection operator to $\eta=1$ sector. 
+Since projection operators obviously have no inverse, we can see that this $D$ is indeed non-invertible. \\
 \\
 　Symmetry operators can extend over any closed 1-dimensional loop in 1+1-d spacetime. 
 In particular, we can consider symmetry operators extending horizontally in time direction. 
@@ -1053,12 +1078,29 @@ generated by $T: z\to z + 1$ and $S: z\mapsto -\frac{1}{z}$.
     \label{SymmetryAndDefect}
     \end{figure}
 Now, let's consider to insert a "defect" into our Hilbert space. 
+When we insert one $\eta$ at link $(L, 1)$, 
 \subsection{Example from continuous: $3+1$-d $U(1)$ Maxwell theory (, again)}
 We can also find examples of non-invertible symmetry in continuous QFT. 
-Let's consider the action integral
+Let's consider the action integral (the same as \label{U1pure})
+\begin{align}
+    S = -\frac{1}{2g^2} \int F\wedge \star F = -\frac{1}{4g^2}\int F_{\mu\nu}F^{\mu\nu}. 
+\end{align}
+We have two kinds of topological operators for electric \eqref{electric1form} and magnetic \eqref{magnetic1form}
+$1$-form symmetry: 
+\begin{align}
+    U^{e}_{\lambda}(\Sigma_2) = \exp\blr{i\lambda\oint_{\Sigma}\frac{\star F}{g}}=: \exp\blr{i\lambda\oint_{\Sigma}J^e_2}, 
+\end{align}
+and 
+\begin{align}
+    U^{m}_\lambda(\Sigma_2) = \exp\blr{i\lambda\oint_{\Sigma_2}\star J^m_2}
+    =\exp\blr{i\lambda\oint_{\Sigma_2}\frac{F}{2\pi}}. 
+ \end{align}
 \newpage
 \section{What comes next?}
-In this section, we will see what comes as following topics after studying gerenalized symmetry in this text. 
+\color{red}
+It might be good to give up this section. \\
+\color{black}
+　In this section, we will see what comes as following topics after studying gerenalized symmetry in this text. 
 I appologize that I do not understand the following topics and cannot explain any details. 
 \subsection{Generalized charges}
 \subsection{Symmetry TFT}
